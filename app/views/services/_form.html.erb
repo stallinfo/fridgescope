@@ -1,0 +1,74 @@
+<%= form_with(model: service) do |form| %>
+  <% if service.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(service.errors.count, "error") %> prohibited this service from being saved:</h2>
+              
+      <ul>
+        <% service.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :id %>
+    <%= form.text_field :id, class: "form-control", disabled: "true" %>
+  </div>
+
+  <div class="field">
+    <%= form.label :name , "Name (max length 60 chars)"%>
+    <%= form.text_field :name, class: "form-control" %>
+  </div>
+
+  <div class="field">
+    <%= form.label :connection_phrase, "Connection phrase (max length 16 chars" %>
+    <%= form.text_field :connection_phrase, class: "form-control" %>
+  </div>
+
+  <div class="field">
+    <%= form.label :description,"Description (max lenght 200 chars)" %>
+    <%= form.text_area :description, class: "form-control"  %>
+  </div>
+
+  <div class="field">
+    <%= form.label :update_count %>
+    <% if controller.action_name == "create" %>
+      <%= form.text_field :update_count, disabled: "true", class: "form-control", value: "" %>
+    <% else %>
+      <%= form.text_field :update_count, disabled: "true", class: "form-control" %>
+    <% end %>
+  </div>
+
+  <div class="field">
+    <%= form.label :created_at %>
+    <%= form.text_field :created_at, disabled: "true", class: "form-control"  %>
+  </div>
+
+  <div class="field">
+    <%= form.label :created_by %>
+    <% if controller.action_name == "create" %>
+      <%= form.text_field :created_by, disabled: "true", class: "form-control", value: ""  %>
+    <% else %>
+      <%= form.text_field :created_by, disabled: "true", class: "form-control"  %>
+    <% end %>
+  </div>
+  
+  <div class="field">
+    <%= form.label :updated_at %>
+    <%= form.text_field :updated_at, disabled: "true", class: "form-control"  %>
+  </div>
+
+  <div class="field">
+    <%= form.label :updated_by %>
+    <% if controller.action_name == "create" %>
+      <%= form.text_field :updated_by, disabled: "true", class: "form-control", value: "" %>
+    <% else %>
+      <%= form.text_field :updated_by, disabled: "true", class: "form-control" %>
+    <% end %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit class: "btn btn-primary" %>
+  </div>
+<% end %>

@@ -1,0 +1,39 @@
+<div class="pageContainer">
+  <div class="logo">Fridge Scope</div>
+
+    <%= link_to "log out", administrator_logout_path, method: :delete, class: "signOut" %>
+
+    <div class="title">List of Service</div>
+
+    <div class="searchContainer">
+      <div class="searchTitle">Search by Service name</div>
+        <%= form_for(:words, url: service_search_path) do |f| %>
+          <% if @content != nil %>
+            <%= f.text_field :service_name, placeholder: "search...", class: 'form-control', value: @content %>
+          <% else %>
+            <%= f.text_field :service_name, placeholder: "search...", class: 'form-control' %>
+          <% end %>
+           
+          <%= link_to "Clear", "#", class: "btn btn-secondary", type: :reset %>
+          <%= f.submit "Search", class: "btn btn-primary " %>
+        <% end %>
+      </div>
+      <div class="servicesContainer">
+        <div class="servicesTable">
+          <div class="serviceRow">
+            <div class="serviceNameHead">Service Name</div>
+          </div>
+          <% @services.each do |service| %>
+            <div class="serviceRow">
+              <div class="serviceName"><%= service.name %></div>
+              <%= link_to 'Edit Service', edit_service_path(service), class: "btn btn-light" %>
+              <%= link_to 'Edit Service Manager', service, class: "btn btn-light" %>
+            </div>
+          <% end %>  
+        </div>
+        <div class="servicesFooter">
+          <%= link_to 'Add New Service', new_service_path, class: "btn btn-primary" %>
+          <%= will_paginate(@services, :param_name => 'service_page', :params => {:tab => 0}, :renderer => WillPaginate::ActionView::Bootstrap4LinkRenderer) %>
+        </div>
+      </div>
+    </div>

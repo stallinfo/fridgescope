@@ -1,0 +1,87 @@
+<h1>Service Content</h1>
+<div class="row">
+    <div class="col-1"></div>
+    <div class="col-2">
+        service ID
+    </div>
+    <div class="col-md-6 col-md-offset-3">
+        <%= @service.id %>
+    </div>   
+</div>
+<div class="row">
+    <div class="col-1"></div>
+    <div class="col-2">
+        service name
+    </div>
+    <div class="col-md-6 col-md-offset-3">
+        <%= @service.name %>
+    </div>   
+</div>
+<div class="row">
+    <div class="col-1"></div>
+    <div class="col-2">
+        connection phrase
+    </div>
+    <div class="col-md-6 col-md-offset-3">
+        <%= @service.connection_phrase %>
+    </div>   
+</div>
+<div class="row">
+    <div class="col-1"></div>
+    <div class="col-2">
+        description
+    </div>
+    <div class="col-md-6 col-md-offset-3">
+        <%= @service.description %>
+    </div>   
+</div>
+<div class="row">
+    <div class="col-1"></div>
+    <div class="col-2">
+        update
+    </div>
+    <div class="col-md-6 col-md-offset-3">
+        <%= @service.update_count %>
+    </div>   
+</div>
+<div class="row">
+    <div class="col-1"></div>
+    <div class="col-2">
+        created at
+    </div>
+    <div class="col-md-6 col-md-offset-3">
+        <%= @service.created_at %>
+    </div>   
+</div>
+<div class="row">
+    <div class="col-1"></div>
+    <div class="col-2">
+        created by
+    </div>
+    <div class="col-md-6 col-md-offset-3">
+        <%= @service.created_by %>
+    </div>   
+</div>
+<div class="row">
+    <div class="col-1"></div>
+    <div class="col-2">
+        updated at
+    </div>
+    <div class="col-md-6 col-md-offset-3">
+        <%= @service.updated_at %>
+    </div>   
+</div>
+<div class="row">
+    <div class="col-1"></div>
+    <div class="col-2">
+        updated_by
+    </div>
+    <div class="col-md-6 col-md-offset-3">
+        <%= @service.updated_by %>
+    </div>   
+</div>
+<div class="row">
+    <div class="col-1">
+        <%= link_to "back", services_path , class: "btn btn-info fluid" %>
+    </div>
+</div>

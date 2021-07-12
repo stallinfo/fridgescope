@@ -1,0 +1,23 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  service: one
+  name: MyString
+  latitude: 9.99
+  longitude: 9.99
+  update_count: 1
+  created_by: MyString
+  created_api_caller: MyString
+  updated_by: MyString
+  updated_api_caller: MyString
+
+two:
+  service: two
+  name: MyString
+  latitude: 9.99
+  longitude: 9.99
+  update_count: 1
+  created_by: MyString
+  created_api_caller: MyString
+  updated_by: MyString
+  updated_api_caller: MyString

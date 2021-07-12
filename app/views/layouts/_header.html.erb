@@ -1,0 +1,28 @@
+<header class="navbar navbar-light  bg-warning navbar-fixed-top shadow p-1 mb-3 rounded">
+    <div class="container">
+        <%= link_to "Fridge Scope", root_path, id: "logo" %>
+    <nav>
+        <ul class="nav navbar-nav navbar-right">
+            <% if controller.controller_name == "services" || controller.controller_name == "service_managers" %>
+                <% if administrator_logged_in? %>   
+                    <li><%= link_to "log out", administrator_logout_path, method: :delete %></li>
+                <% else %>
+                    <% if controller.controller_name == "administrators" || controller.controller_name == "services" %>
+                        <li><%= link_to "log in", administrator_login_path %></li>    
+                    <% end %>
+                <% end %>
+            <% end %>
+
+            <% if controller.controller_name == "facilities" || controller.controller_name == "facility_managers" %>
+                <% if service_manager_logged_in? %>   
+                    <li><%= link_to "log out", service_manager_logout_path, method: :delete %></li>
+                <% else %>
+                    <% if controller.controller_name == "service_managers" || controller.controller_name == "facilities" %>
+                        <li><%= link_to "log in", service_manager_login_path %></li>    
+                    <% end %>
+                <% end %>
+            <% end %>
+        </ul>
+    </nav>
+    </div>
+</header>

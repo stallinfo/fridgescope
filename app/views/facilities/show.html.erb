@@ -1,0 +1,29 @@
+<h1>List of facility managers</h1>
+<div class="row">
+  <div class="col-4">
+    <h3><%= link_to "⏪", facilities_path %>Selected facility name</h3>
+  </div>
+  <div class="col-8">
+    <h3><%= @facility.name %></h3>
+  </div>
+</div>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Facility Manager Name</th>
+      <th>ID</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @facility_managers.each do |facility_manager| %>
+      <tr>
+        <td><%= facility_manager.name %></td>
+        <td><%= facility_manager.identify %></td> 
+        <td class="text-end"><%= link_to 'Edit', edit_facility_manager_path(facility_manager) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<%= link_to 'Add New Facility Manager', new_facility_manager_path(:id => @facility.id), class: "btn btn-warning" %><%= will_paginate(@facility_managers, :param_name => 'facility_manager_page', :params => {:tab => 0}, :renderer => WillPaginate::ActionView::Bootstrap4LinkRenderer) %>
+

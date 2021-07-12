@@ -1,0 +1,15 @@
+<div class="row">
+    <div class="col-12">
+        <h1>Facility content</h1>
+        <%= render 'form', facility: @facility %>
+        
+    </div>
+</div>
+<div class="row">
+    <div class="col-1">
+        <%= link_to "cancel", facilities_path , class: "btn btn-info fluid" %>
+    </div>
+    <div class="col-1">
+        <%= link_to "delete", @facility, method: :delete, data: { confirm: "You sure?" }, class: "btn btn-danger fluid" %>
+    </div>
+</div>

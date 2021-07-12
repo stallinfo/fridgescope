@@ -1,0 +1,54 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Facility:</strong>
+  <%= @fridge.facility_id %>
+</p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @fridge.name %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @fridge.description %>
+</p>
+
+<p>
+  <strong>Latitude:</strong>
+  <%= @fridge.latitude %>
+</p>
+
+<p>
+  <strong>Longitude:</strong>
+  <%= @fridge.longitude %>
+</p>
+
+<p>
+  <strong>Update count:</strong>
+  <%= @fridge.update_count %>
+</p>
+
+<p>
+  <strong>Created by:</strong>
+  <%= @fridge.created_by %>
+</p>
+
+<p>
+  <strong>Created api caller:</strong>
+  <%= @fridge.created_api_caller %>
+</p>
+
+<p>
+  <strong>Updated by:</strong>
+  <%= @fridge.updated_by %>
+</p>
+
+<p>
+  <strong>Updated api caller:</strong>
+  <%= @fridge.updated_api_caller %>
+</p>
+
+<%= link_to 'Edit', edit_fridge_path(@fridge) %> |
+<%= link_to 'Back', fridges_path %>

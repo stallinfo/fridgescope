@@ -1,0 +1,18 @@
+<div class="row">
+    <div class="col-3">
+    </div>
+    <div class="col-md-6 col-md-offset-3">
+        <%= form_with(url: service_manager_login_path, scope: :service_manager_session, local: true) do |f| %>
+            <%= f.label :connection_phrase %>
+            <%= f.text_field :connection_phrase, class: 'form-control' %>
+
+            <%= f.label :identify %>
+            <%= f.text_field :identify, class: 'form-control' %>
+            
+            <%= f.label :password %>
+            <%= f.password_field :password, class: 'form-control' %>
+            
+            <%= f.submit "Log in", class: "btn btn-primary" %> 
+        <% end %>
+    </div>
+</div>

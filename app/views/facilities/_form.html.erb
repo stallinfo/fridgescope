@@ -1,0 +1,96 @@
+<div class="row">
+  <div class="col-6">
+    <%= form_with(model: facility) do |form| %>
+      <% if facility.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(facility.errors.count, "error") %> prohibited this facility from being saved:</h2>
+
+          <ul>
+            <% facility.errors.each do |error| %>
+              <li><%= error.full_message %></li>
+            <% end %>
+          </ul>
+        </div>
+      <% end %>
+
+      <div class="field">
+        <%= form.hidden_field :service_id %>
+      </div>
+
+      <%= form.label :id %>
+      <%= form.text_field :id, class: 'form-control', disabled: 'true' %>
+
+      <div class="field">
+        <%= form.label :name %>
+        <%= form.text_field :name, class: 'form-control' %>
+      </div>
+
+      <div class="field">
+        <%= form.label :latitude %>
+        <%= form.text_field :latitude, class: 'form-control' %>
+      </div>
+
+      <div class="field">
+        <%= form.label :longitude %>
+        <%= form.text_field :longitude, class: 'form-control' %>
+      </div>
+
+      <div class="field">
+        <%= form.label :update_count %>
+        <%= form.number_field :update_count, class: 'form-control', disabled: 'true' %>
+      </div>
+      
+      <div class="field">
+        <%= form.label :created_at %>
+        <%= form.text_field :created_at, class: 'form-control', disabled: 'true'  %>
+      </div>
+
+      <div class="field">
+        <%= form.label :created_by %>
+        <%= form.text_field :created_by, class: 'form-control', disabled: 'true'  %>
+      </div>
+
+      <div class="field">
+        <%= form.hidden_field :created_api_caller %>
+      </div>
+
+      <div class="field">
+        <%= form.label :updated_at %>
+        <%= form.text_field :updated_at, class: 'form-control', disabled: 'true'  %>
+      </div>
+
+      <div class="field">
+        <%= form.label :updated_by %>
+        <%= form.text_field :updated_by, class: 'form-control', disabled: 'true'  %>
+      </div>
+
+      <div class="field">
+        <%= form.hidden_field :updated_api_caller %>
+      </div>
+
+      <div class="actions">
+        <%= form.submit %>
+      </div>
+    <% end %>
+  </div>
+  <div class="col-6">
+    <div id="map"></div>
+
+    
+    <script
+      src="https://maps.googleapis.com/maps/api/js?key=<%= @googleapikey %>&callback=initMap&libraries=&v=weekly"
+      async>
+    </script>
+  </div>
+</div>
+
+<script>
+  let map;
+
+  function initMap() {
+    map = new google.maps.Map(document.getElementById("map"), {
+      center: { lat: 34.96044797500092, lng: 138.4044472577484 },
+      zoom: 15,
+    });
+  }
+</script>

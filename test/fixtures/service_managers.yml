@@ -1,0 +1,17 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  service: one
+  name: MyString
+  identify: MyString
+  update_count: 1
+  created_by: MyString
+  updated_by: MyString
+
+two:
+  service: two
+  name: MyString
+  identify: MyString
+  update_count: 1
+  created_by: MyString
+  updated_by: MyString

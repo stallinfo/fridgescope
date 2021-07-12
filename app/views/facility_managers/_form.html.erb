@@ -1,0 +1,41 @@
+<%= form_with(model: @facility_manager, local: true) do |f| %> 
+    <%= render 'shared/error_messages', object: f.object %>
+    
+    <%= f.hidden_field :facility_id, value: @facility.id %>
+    
+    <%= f.label :id %>
+    <%= f.text_field :id, class: 'form-control', disabled: 'true' %>
+
+    <%= f.label :name %>
+    <%= f.text_field :name, class: 'form-control' %>
+    
+    <%= f.label :identify %>
+    <%= f.text_field :identify, class: 'form-control' %>
+
+    
+    <%= f.hidden_field :email, class: 'form-control' %>
+
+    <%= f.label :password %>
+    <%= f.password_field :password, class: 'form-control' %>
+    
+    <%= f.label :update_count %>
+    <% if controller.action_name == "create" %>
+        <%= f.text_field :update_count, class: 'form-control', disabled: 'true', value: "" %>
+    <% else %>
+        <%= f.text_field :update_count, class: 'form-control', disabled: 'true' %>
+    <% end %>
+
+    <%= f.label :created_at %>
+    <%= f.text_field :created_at, class: 'form-control', disabled: 'true' %>
+
+    <%= f.label :created_by %>
+    <%= f.text_field :created_by, class: 'form-control', disabled: 'true' %>
+
+    <%= f.label :updated_at %>
+    <%= f.text_field :updated_at, class: 'form-control', disabled: 'true' %>
+
+    <%= f.label :updated_by %>
+    <%= f.text_field :updated_by, class: 'form-control', disabled: 'true' %>
+
+    <%= f.submit "Update", class: "btn btn-primary" %> 
+<% end %>

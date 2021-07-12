@@ -1,0 +1,67 @@
+<%= form_with(model: fridge) do |form| %>
+  <% if fridge.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(fridge.errors.count, "error") %> prohibited this fridge from being saved:</h2>
+
+      <ul>
+        <% fridge.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :facility_id %>
+    <%= form.text_field :facility_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :description %>
+    <%= form.text_area :description %>
+  </div>
+
+  <div class="field">
+    <%= form.label :latitude %>
+    <%= form.text_field :latitude %>
+  </div>
+
+  <div class="field">
+    <%= form.label :longitude %>
+    <%= form.text_field :longitude %>
+  </div>
+
+  <div class="field">
+    <%= form.label :update_count %>
+    <%= form.number_field :update_count %>
+  </div>
+
+  <div class="field">
+    <%= form.label :created_by %>
+    <%= form.text_field :created_by %>
+  </div>
+
+  <div class="field">
+    <%= form.label :created_api_caller %>
+    <%= form.text_field :created_api_caller %>
+  </div>
+
+  <div class="field">
+    <%= form.label :updated_by %>
+    <%= form.text_field :updated_by %>
+  </div>
+
+  <div class="field">
+    <%= form.label :updated_api_caller %>
+    <%= form.text_field :updated_api_caller %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

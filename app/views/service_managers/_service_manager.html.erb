@@ -1,0 +1,6 @@
+<li>
+    <%= link_to service_manager.name, service_manager %>
+    <% if !current_service_manager?(service_manager) %>
+        <%= link_to "delete", service_manager, method: :delete, data: { confirm: "You sure?" } %>
+    <% end %>
+</li> 

@@ -1,0 +1,21 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  fridge: one
+  posted_at: 2021-07-06
+  current_storage_rate: 9.99
+  update_count: 1
+  created_by: MyString
+  created_api_caller: MyString
+  updated_by: MyString
+  updated_api_caller: MyString
+
+two:
+  fridge: two
+  posted_at: 2021-07-06
+  current_storage_rate: 9.99
+  update_count: 1
+  created_by: MyString
+  created_api_caller: MyString
+  updated_by: MyString
+  updated_api_caller: MyString

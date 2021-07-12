@@ -1,0 +1,58 @@
+<h1>List of facilities</h1>
+
+<div class="row">
+  <div class="col-4 text-end">
+    <h3>Search by facility name</h3>  
+  </div>
+  <div class="col-8">
+    <%= form_for(:words, url: facility_search_path) do |f| %>
+      <div class="input-group">
+        <% if @content != nil %>
+          <%= f.text_field :facility_name, placeholder: "search...", class: 'form-control', value: @content %>
+        <% else %>
+          <%= f.text_field :facility_name, placeholder: "search...", class: 'form-control' %>
+        <% end %>
+        <div class="input-group-append">
+          <%= link_to "Clear", "#", class: "btn btn-outline-secondary", type: :reset %>
+        </div>
+        <div class="input-group-append">
+          <%= f.submit "Search", class: "btn btn-outline-secondary " %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
+<div class="row">
+  <div class="col-12">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th></th>
+          <th></th>
+          <th></th>
+          <th>Facility name</th>
+          <th></th>
+          <th></th>
+          <th></th>
+          <th></th>
+          <th></th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% @facilities.each do |facility| %>
+          <tr>
+            <td colspan="7"><%= facility.name %></td>
+            <td class="text-end"><%= link_to 'Edit Facility', edit_facility_path(facility) %></td>
+            <td class="text-end"><%= link_to 'Edit Facility Manager', facility %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
+<div class="row">
+  <div class="col-12">
+    <%= link_to 'New Facility', new_facility_path %>
+  </div>
+</div>
