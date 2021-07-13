@@ -23,16 +23,8 @@ class FridgesController < ApplicationController
   def create
     @fridge = Fridge.new(fridge_params)
     @fridge.initial_picture_path.attach(params[:fridge][:initial_picture_path])
-    
-    
-    # for testing purpose
-      #@fridge.facility_id = Facility.first.id
-    #----
     image_file = params[:fridge][:initial_picture_path]
-
     @fridge.initial_storage_rate = density_calculation(image_file)
- 
-
     respond_to do |format|
       if @fridge.save
         format.html { redirect_to @fridge, notice: "Fridge was successfully created." }
