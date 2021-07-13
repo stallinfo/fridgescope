@@ -1,58 +1,39 @@
-<h1>List of facilities</h1>
+<div class="serviceManagerSessions-pageContainer">
+  <div class="logo">Fridge Scope</div>
 
-<div class="row">
-  <div class="col-4 text-end">
-    <h3>Search by facility name</h3>  
-  </div>
-  <div class="col-8">
-    <%= form_for(:words, url: facility_search_path) do |f| %>
-      <div class="input-group">
-        <% if @content != nil %>
-          <%= f.text_field :facility_name, placeholder: "search...", class: 'form-control', value: @content %>
-        <% else %>
-          <%= f.text_field :facility_name, placeholder: "search...", class: 'form-control' %>
+    <%= link_to "log out", administrator_logout_path, method: :delete, class: "signOut" %>
+
+    <div class="title">List of facilities</div>
+
+    <div class="index-searchContainer">
+      <div class="index-searchTitle">Search by Facility name</div>
+        <%= form_for(:words, url: service_search_path) do |f| %>
+          <% if @content != nil %>
+            <%= f.text_field :service_name, placeholder: "search...", class: 'form-control', value: @content %>
+          <% else %>
+            <%= f.text_field :service_name, placeholder: "search...", class: 'form-control' %>
+          <% end %>
+           
+          <%= link_to "Clear", "#", class: "btn btn-secondary", type: :reset %>
+          <%= f.submit "Search", class: "btn btn-primary " %>
         <% end %>
-        <div class="input-group-append">
-          <%= link_to "Clear", "#", class: "btn btn-outline-secondary", type: :reset %>
+      </div>
+      <div class="index-servicesContainer">
+        <div class="index-servicesTable">
+          <div class="index-serviceRow">
+            <div class="index-serviceNameHead">Facility Name</div>
+          </div>
+          <% @services.each do |service| %>
+            <div class="index-serviceRow">
+              <div class="index-serviceName"><%= service.name %></div>
+              <%= link_to 'Edit Service', edit_service_path(service), class: "btn btn-light" %>
+              <%= link_to 'Edit Service Manager', service, class: "btn btn-light" %>
+            </div>
+          <% end %>  
         </div>
-        <div class="input-group-append">
-          <%= f.submit "Search", class: "btn btn-outline-secondary " %>
+        <div class="index-servicesFooter">
+          <%= link_to 'Add New Service', new_service_path, class: "btn btn-primary" %>
+          <%= will_paginate(@services, :param_name => 'service_page', :params => {:tab => 0}, :renderer => WillPaginate::ActionView::Bootstrap4LinkRenderer) %>
         </div>
       </div>
-    <% end %>
-  </div>
-</div>
-<div class="row">
-  <div class="col-12">
-    <table class="table table-striped">
-      <thead>
-        <tr>
-          <th></th>
-          <th></th>
-          <th></th>
-          <th>Facility name</th>
-          <th></th>
-          <th></th>
-          <th></th>
-          <th></th>
-          <th></th>
-        </tr>
-      </thead>
-
-      <tbody>
-        <% @facilities.each do |facility| %>
-          <tr>
-            <td colspan="7"><%= facility.name %></td>
-            <td class="text-end"><%= link_to 'Edit Facility', edit_facility_path(facility) %></td>
-            <td class="text-end"><%= link_to 'Edit Facility Manager', facility %></td>
-          </tr>
-        <% end %>
-      </tbody>
-    </table>
-  </div>
-</div>
-<div class="row">
-  <div class="col-12">
-    <%= link_to 'New Facility', new_facility_path %>
-  </div>
-</div>
+    </div>
