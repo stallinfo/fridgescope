@@ -22,6 +22,11 @@ class FridgesController < ApplicationController
   # POST /fridges or /fridges.json
   def create
     @fridge = Fridge.new(fridge_params)
+    @fridge.initial_picture_path.attach(params[:fridge][:initial_picture_path])
+
+    # for testing purpose
+      #@fridge.facility_id = Facility.first.id
+    #----
 
     respond_to do |format|
       if @fridge.save
@@ -64,6 +69,6 @@ class FridgesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def fridge_params
-      params.require(:fridge).permit(:facility_id, :name, :description, :latitude, :longitude, :update_count, :created_by, :created_api_caller, :updated_by, :updated_api_caller)
+      params.require(:fridge).permit(:facility_id, :name, :description, :latitude, :longitude, :update_count, :created_by, :created_api_caller, :updated_by, :updated_api_caller, :initial_picture_path)
     end
 end
