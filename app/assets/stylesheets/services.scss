@@ -37,6 +37,15 @@
   align-items: center;
   width: 100%;
 }
+.index-searchContainer form {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  width: 100%;
+}
+.index-searchContainer input {
+  margin-bottom: 0;
+}
 .index-searchTitle {
   flex-shrink: 0;
 }
@@ -81,6 +90,24 @@
 .index-servicesFooter {
   display: flex;
   gap: 1rem;
+}
+.edit-pageContainer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  color: rgb(73, 178, 214);
+
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+.edit-title {
+  font-size: 2rem;
+  font-weight: bold;
 }
 .edit-inputContainer {
   width: 100%;
