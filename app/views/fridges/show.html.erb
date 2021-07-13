@@ -50,5 +50,7 @@
   <%= @fridge.updated_api_caller %>
 </p>
 
+<%= image_tag @fridge.initial_picture_path if @fridge.initial_picture_path.attached? %>
+
 <%= link_to 'Edit', edit_fridge_path(@fridge) %> |
 <%= link_to 'Back', fridges_path %>
