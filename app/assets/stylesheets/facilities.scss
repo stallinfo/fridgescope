@@ -1,3 +1,166 @@
-// Place all the styles related to the Facilities controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: https://sass-lang.com/
+.pageContainer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgb(114, 209, 177);
+
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+.logo {
+  align-self: flex-start;
+  font-size: 2rem;
+  font-weight: bold;
+  color: white;
+}
+.title {
+  font-size: 2rem;
+  font-weight: bold;
+  color: white;
+}
+.signOut {
+  position: fixed;
+  top: 2rem;
+  right: 2rem;
+}
+.index-serviceContainer {
+  width: 100%;
+  padding: 0 0.5rem;
+  background-color: white;
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+.index-serviceArrow {
+  font-size: 2rem;
+  font-weight: bold;
+}
+.index-serviceNameLabel {
+  color: rgb(114, 209, 177);
+}
+
+.index-managersContainer {
+  color: white;
+  background-color: rgb(196, 196, 196);
+  width: 100%;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.index-managersTable {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+.index-managerRow {
+  width: 100%;
+  display: flex;
+  gap: 0.5rem;
+}
+.index-managerRow button {
+  color: rgb(114, 209, 177);
+  flex-grow: 2;
+}
+.index-managerNameHead {
+  width: 50%;
+  text-align: center;
+}
+.index-managerIDHead {
+  width: 30%;
+  text-align: center;
+}
+.index-managerName {
+  width: 50%;
+  background: white;
+  color: black;
+  padding: 0.5rem;
+}
+.index-managerID {
+  width: 30%;
+  background: white;
+  color: black;
+  padding: 0.5rem;
+  text-align: center;
+}
+.index-servicesFooter {
+  display: flex;
+  gap: 1rem;
+}
+.edit-pageContainer {
+  width: 100vw;
+  color: rgb(114, 209, 177);
+
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+.edit-title {
+  font-size: 2rem;
+  font-weight: bold;
+}
+.edit-contentContainer {
+  display: flex;
+  width: 100%;
+  gap: 1rem;
+  align-items: center;
+}
+.edit-inputsContainer {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+.edit-map {
+  flex-shrink: 0;
+  background-color: aquamarine;
+  width: 20rem;
+  height: 20rem;
+}
+.edit-inputContainer {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+.edit-inputName {
+  flex-basis: 30rem;
+  text-align: right;
+}
+.edit-footer {
+  width: 100%;
+  display: flex;
+  gap: 1rem;
+}
+.edit-footer button {
+  width: 10rem;
+  flex-shrink: 0;
+}
+.edit-footer div {
+  width: 100%;
+}
+@media screen and (max-width: 600px) {
+  .edit-contentContainer {
+    flex-direction: column;
+  }
+  .edit-footer {
+    flex-direction: column;
+    align-items: center;
+    flex-direction: column-reverse;
+  }
+  .edit-footer button {
+    width: 100%;
+  }
+  .edit-update {
+    order: 1;
+  }
+}

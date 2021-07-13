@@ -1,15 +1,50 @@
-<div class="row">
-    <div class="col-12">
-        <h1>Facility content</h1>
-        <%= render 'form', facility: @facility %>
-        
+<div class="edit-pageContainer">
+  <div class="edit-title">Facility content</div>
+  <div class="edit-contentContainer">
+    <div class="edit-inputsContainer">
+        <div class="edit-inputContainer">
+            <div class="edit-inputName">facility ID</div>
+            <input type="text" class="form-control" readOnly />
+        </div>
+        <div class="edit-inputContainer">
+            <div class="edit-inputName">facility name</div>
+            <input type="text" class="form-control" />
+        </div>
+        <div class="edit-inputContainer">
+            <div class="edit-inputName">latitude</div>
+            <input type="text" class="form-control" readOnly />
+        </div>
+        <div class="edit-inputContainer">
+            <div class="edit-inputName">longitude</div>
+            <input type="text" class="form-control" readOnly />
+        </div>
+        <div class="edit-inputContainer">
+            <div class="edit-inputName">update count</div>
+            <input type="text" class="form-control" readOnly />
+        </div>
+        <div class="edit-inputContainer">
+            <div class="edit-inputName">created at</div>
+            <input type="text" class="form-control" readOnly />
+        </div>
+        <div class="edit-inputContainer">
+            <div class="edit-inputName">created by</div>
+            <input type="text" class="form-control" readOnly />
+        </div>
+        <div class="edit-inputContainer">
+            <div class="edit-inputName">updated at</div>
+            <input type="text" class="form-control" readOnly />
+        </div>
+        <div class="edit-inputContainer">
+            <div class="edit-inputName">updated by</div>
+            <input type="text" class="form-control" readOnly />
+        </div>
     </div>
-</div>
-<div class="row">
-    <div class="col-1">
-        <%= link_to "cancel", facilities_path , class: "btn btn-info fluid" %>
-    </div>
-    <div class="col-1">
-        <%= link_to "delete", @facility, method: :delete, data: { confirm: "You sure?" }, class: "btn btn-danger fluid" %>
-    </div>
+    <div class="edit-map"></div>
+  </div>
+  <div class="edit-footer">
+    <button class="btn btn-danger">Delete</button>
+    <div></div>
+    <button class="btn btn-primary edit-update">Update</button>
+    <button class="btn btn-secondary">Cancel</button>
+  </div>
 </div>
