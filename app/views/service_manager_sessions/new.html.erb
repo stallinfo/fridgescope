@@ -1,18 +1,30 @@
-<div class="row">
-    <div class="col-3">
-    </div>
-    <div class="col-md-6 col-md-offset-3">
-        <%= form_with(url: service_manager_login_path, scope: :service_manager_session, local: true) do |f| %>
-            <%= f.label :connection_phrase %>
-            <%= f.text_field :connection_phrase, class: 'form-control' %>
+<% provide(:title, "Log in") %> 
 
-            <%= f.label :identify %>
+<div class="pageContainer">
+      <div class="serviceName">Fridge Scope</div>
+      <div class="siteName">Service manager site</div>
+      <div class="inputLayoutContainer">
+        <div class="iconContainer">
+          <div class="iconLayout">
+            <img
+              class="icon"
+              src="data:image/png;base64,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"
+            />
+          </div>
+        </div>
+        <div class="inputContainer">
+            <%= form_with(url: administrator_login_path, scope: :administrator_session, local: true) do |f| %>
+            <%= f.label :identify ,"Connection Phrase"%>
+            <%= f.text_field :identify, class: 'form-control' %>
+
+            <%= f.label :identify ,"Your ID"%>
             <%= f.text_field :identify, class: 'form-control' %>
             
             <%= f.label :password %>
             <%= f.password_field :password, class: 'form-control' %>
-            
-            <%= f.submit "Log in", class: "btn btn-primary" %> 
-        <% end %>
-    </div>
+
+            <%= f.submit "Sign in", class: "btn btn-primary" %> 
+            <% end %>        
+        </div>
+      </div>
 </div>
