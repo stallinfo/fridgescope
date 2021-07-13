@@ -93,3 +93,38 @@
   display: flex;
   gap: 1rem;
 }
+.edit-inputContainer {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+.edit-inputName {
+  flex-basis: 30rem;
+  text-align: right;
+}
+.edit-footer {
+  width: 100%;
+  display: flex;
+  gap: 1rem;
+}
+.edit-footer button {
+  width: 10rem;
+  flex-shrink: 0;
+}
+.edit-footer div {
+  width: 100%;
+}
+@media screen and (max-width: 600px) {
+  .edit-footer {
+    flex-direction: column;
+    align-items: center;
+    flex-direction: column-reverse;
+  }
+  .edit-footer button {
+    width: 100%;
+  }
+  .edit-update {
+    order: 1;
+  }
+}
