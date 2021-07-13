@@ -23,7 +23,7 @@ class FridgesController < ApplicationController
   def create
     @fridge = Fridge.new(fridge_params)
     @fridge.initial_picture_path.attach(params[:fridge][:initial_picture_path])
-
+    
     # for testing purpose
       #@fridge.facility_id = Facility.first.id
     #----
