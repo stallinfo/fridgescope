@@ -51,6 +51,12 @@
 </p>
 
 <%= image_tag @fridge.initial_picture_path if @fridge.initial_picture_path.attached? %>
+<% if @fridge.initial_picture_path.attached? %>
+  <%= url_for(@fridge.initial_picture_path) %>
+<% end %>
+<% if @response != nil %>
+  <%= @response %>
+<% end %>
 
 <%= link_to 'Edit', edit_fridge_path(@fridge) %> |
 <%= link_to 'Back', fridges_path %>

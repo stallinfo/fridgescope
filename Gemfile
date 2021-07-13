@@ -33,8 +33,12 @@ gem 'jbuilder', '~> 2.7'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.4', require: false
+
+# for image processing
 gem "aws-sdk-s3", require: false
 gem 'delayed_job_active_record'
+gem 'rest-client'
+gem 'base64'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

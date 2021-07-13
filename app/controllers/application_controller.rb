@@ -2,7 +2,8 @@ class ApplicationController < ActionController::Base
     include AdministratorSessionsHelper
     include FacilityManagerSessionsHelper
     include ServiceManagerSessionsHelper
-
+    include ApplicationHelper
+    
     private
 
         def logged_in_administrator
