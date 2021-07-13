@@ -1,7 +1,34 @@
-<% provide(:title, 'All facility managers') %> 
-<h1>All facility managers</h1>
-<%= will_paginate %>
-<ul class="users">
-    <%= render @facility_managers %>
-</ul>
-<%= will_paginate %>
+<div class="pageContainer">
+  <div class="logo">Fridge Scope</div>
+  <button class="signOut btn btn-light">Sign Out</button>
+  <div class="title">List of facility managers</div>
+  <div class="index-serviceContainer">
+    <div class="index-serviceArrow">❮</div>
+    <div class="index-serviceNameLabel">Selected Facility name</div>
+    <div>Shizuoka-city Central Community Center</div>
+  </div>
+  <div class="index-managersContainer">
+    <div class="index-managersTable">
+      <div class="index-managerRow">
+        <div class="index-managerNameHead">Facility Manager Name</div>
+        <div class="index-managerIDHead">ID</div>
+      </div>
+      <div class="index-managerRow">
+        <div class="index-managerName">Kohei Otani</div>
+        <div class="index-managerID">ABCd#.0012</div>
+        <button class="btn btn-light">Edit</button>
+      </div>
+    </div>
+    <div class="index-servicesFooter">
+      <button type="button" class="btn btn-primary">
+        Add New Facility Manager
+      </button>
+      <button type="button" class="btn btn-secondary">
+        &lt;&lt;Prev
+      </button>
+      <button type="button" class="btn btn-secondary">
+        &gt;&gt;Next
+      </button>
+    </div>
+  </div>
+</div>
