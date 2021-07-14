@@ -13,9 +13,9 @@
           </div>
         </div>
         <div class="inputContainer">
-            <%= form_with(url: administrator_login_path, scope: :administrator_session, local: true) do |f| %>
+            <%= form_with(url: service_manager_login_path, scope: :service_manager_session, local: true) do |f| %>
             <%= f.label :identify ,"Connection Phrase"%>
-            <%= f.text_field :identify, class: 'form-control' %>
+            <%= f.text_field :connection_phrase, class: 'form-control' %>
 
             <%= f.label :identify ,"Your ID"%>
             <%= f.text_field :identify, class: 'form-control' %>

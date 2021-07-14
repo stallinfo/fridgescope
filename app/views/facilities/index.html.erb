@@ -1,7 +1,7 @@
 <div class="serviceManagerSessions-pageContainer">
   <div class="logo">Fridge Scope</div>
 
-    <%= link_to "log out", administrator_logout_path, method: :delete, class: "signOut" %>
+    <%= link_to "log out", service_manager_logout_path, method: :delete, class: "signOut" %>
 
     <div class="title">List of facilities</div>
 
@@ -23,17 +23,17 @@
           <div class="index-serviceRow">
             <div class="index-serviceNameHead">Facility Name</div>
           </div>
-          <% @services.each do |service| %>
+          <% @facilities.each do |facility| %>
             <div class="index-serviceRow">
-              <div class="index-serviceName"><%= service.name %></div>
-              <%= link_to 'Edit Service', edit_service_path(service), class: "btn btn-light" %>
-              <%= link_to 'Edit Service Manager', service, class: "btn btn-light" %>
+              <div class="index-serviceName"><%= facility.name %></div>
+              <%= link_to 'Edit Facility', edit_facility_path(facility), class: "btn btn-light" %>
+              <%= link_to 'Edit Facility Manager', facility, class: "btn btn-light" %>
             </div>
           <% end %>  
         </div>
         <div class="index-servicesFooter">
-          <%= link_to 'Add New Service', new_service_path, class: "btn btn-primary" %>
-          <%= will_paginate(@services, :param_name => 'service_page', :params => {:tab => 0}, :renderer => WillPaginate::ActionView::Bootstrap4LinkRenderer) %>
+          <%= link_to 'Add New Service', new_facility_path, class: "btn btn-primary" %>
+          <%= will_paginate(@facilities, :param_name => 'facility_page', :params => {:tab => 0}, :renderer => WillPaginate::ActionView::Bootstrap4LinkRenderer) %>
         </div>
       </div>
     </div>
