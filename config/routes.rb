@@ -28,6 +28,10 @@ Rails.application.routes.draw do
   post '/facility_search', to: 'facilities#search'
 
 
+  #API
+  get 'apis/login'
+  post 'apis/register'
+
   resources :administrators
   resources :service_managers
   resources :facility_managers
