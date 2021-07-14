@@ -31,6 +31,7 @@ Rails.application.routes.draw do
   #API
   get 'apis/login'
   post 'apis/register'
+  post '/uploadimage', to: 'apis#upload'
 
   resources :administrators
   resources :service_managers

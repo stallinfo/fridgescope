@@ -12,7 +12,7 @@ class ApisController < ApplicationController
         facility_manager = FacilityManager.find_by(identify: identify)
         if facility_manager != nil && service != nil
             facility = Facility.find(facility_manager.facility_id)
-            
+
             if facility != nil && facility.service_id == service.id
                 jsonMsg(200,"Authenticated",[service.name, service.description]) 
             else
@@ -25,6 +25,13 @@ class ApisController < ApplicationController
 
     def register
     
+    end
+
+    def upload
+        image = params[:image]
+        title = params[:title]
+        Fridge.create(name: "test upload", initial_picture_path: image, description: title, facility_id: 1, latitude: 34.96044797500092, longitude: 138.4044472577484, update_count: 0)
+        render json: {result: 0}
     end
 
     private 
