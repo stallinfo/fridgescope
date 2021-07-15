@@ -43,11 +43,13 @@ class ApisController < ApplicationController
         title = params[:title]
         identify = params[:identify]
         password = params[:password]
+        latitude = params[:latitude].to_f
+        longitude = params[:longitude].to_f
         facility_manager = FacilityManager.find_by(identify: identify)
         if facility_manager.authenticate(password)
             facility = Facility.find(facility_manager.facility_id)
             initial_storage_rate = density_calculation(image)
-            Fridge.create(name: "test upload", initial_picture_path: image, description: title, facility_id: facility.id, latitude: 34.96044797500092, longitude: 138.4044472577484, update_count: 0, initial_storage_rate: initial_storage_rate)
+            Fridge.create(name: "test upload", initial_picture_path: image, description: title, facility_id: facility.id, latitude: latitude, longitude: longitude, update_count: 0, initial_storage_rate: initial_storage_rate)
         end
         render json: {result: 0}
     end
