@@ -30,8 +30,13 @@ class ApisController < ApplicationController
     def upload
         image = params[:image]
         title = params[:title]
-        initial_storage_rate = density_calculation(image)
-        Fridge.create(name: "test upload", initial_picture_path: image, description: title, facility_id: 1, latitude: 34.96044797500092, longitude: 138.4044472577484, update_count: 0, initial_storage_rate: initial_storage_rate)
+        identify = params[:identify]
+        password = params[:password]
+        facility_manager = FacilityManager.find_by(identify: identify)
+        if facility_manager.authenticate(password)
+            initial_storage_rate = density_calculation(image)
+            Fridge.create(name: "test upload", initial_picture_path: image, description: title, facility_id: 1, latitude: 34.96044797500092, longitude: 138.4044472577484, update_count: 0, initial_storage_rate: initial_storage_rate)
+        end
         render json: {result: 0}
     end
 
