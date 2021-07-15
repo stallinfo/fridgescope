@@ -49,7 +49,7 @@ class ApisController < ApplicationController
         if facility_manager.authenticate(password)
             facility = Facility.find(facility_manager.facility_id)
             initial_storage_rate = density_calculation(image)
-            Fridge.create(name: "test upload", initial_picture_path: image, description: title, facility_id: facility.id, latitude: latitude, longitude: longitude, update_count: 0, initial_storage_rate: initial_storage_rate)
+            Fridge.create(name: title, initial_picture_path: image, description: "", facility_id: facility.id, latitude: latitude, longitude: longitude, update_count: 0, initial_storage_rate: initial_storage_rate)
         end
         render json: {result: 0}
     end
