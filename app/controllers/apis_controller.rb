@@ -10,21 +10,21 @@ class ApisController < ApplicationController
         email = params[:email]
         service = Service.find_by(connection_phrase: connection_phrase)
         facility_manager = FacilityManager.find_by(identify: identify)
+        
         if facility_manager != nil && service != nil
             facility = Facility.find(facility_manager.facility_id)
 
-            if facility != nil && facility.service_id == service.id
+            if facility != nil && facility.service_id == service.id && facility_manager.authenticate(password)
                 jsonMsg(200,"Authenticated",[service.name, service.description]) 
+                if facility_manager.email == nil || facility_manager.email == ""
+                    facility_manager.update(email: email)
+                end
             else
                 jsonMsg(500,"Rejected",[]) 
             end
         else
             jsonMsg(500,"Rejected",[])
         end
-    end
-
-    def register
-    
     end
 
     def upload

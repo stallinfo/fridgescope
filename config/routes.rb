@@ -33,6 +33,7 @@ Rails.application.routes.draw do
   post 'apis/register'
   post '/uploadimage', to: 'apis#upload'
 
+
   resources :administrators
   resources :service_managers
   resources :facility_managers
