@@ -27,6 +27,17 @@ class ApisController < ApplicationController
         end
     end
 
+    def lightlogin
+        identify = params[:identify]
+        password = params[:password]
+        facility_manager = FacilityManager.find_by(identify: identify)
+        if facility_manager != nil && facility_manager.authenticate(password)
+            jsonMsg(200,"Authenticated",[]) 
+        else
+            jsonMsg(500,"Authentication failed",[]) 
+        end
+    end
+
     def upload
         image = params[:image]
         title = params[:title]

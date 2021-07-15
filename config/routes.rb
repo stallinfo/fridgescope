@@ -30,7 +30,7 @@ Rails.application.routes.draw do
 
   #API
   get 'apis/login'
-  post 'apis/register'
+  get 'apis/lightlogin'
   post '/uploadimage', to: 'apis#upload'
 
 
