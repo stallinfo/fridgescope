@@ -4,8 +4,11 @@ class ServiceManagerSessionsController < ApplicationController
   
   def create
     service_manager = ServiceManager.find_by(identify: params[:service_manager_session][:identify])
-    service = Service.find(service_manager.service_id)
-  
+    
+    if service_manager != nil
+      service = Service.find(service_manager.service_id)
+    end
+
     if service_manager && service_manager.authenticate(params[:service_manager_session][:password]) && service.connection_phrase == params[:service_manager_session][:connection_phrase]
       service_manager_log_in service_manager
       params[:service_manager_session][:remember_me] == '1' ? service_manager_remember(service_manager) : service_manager_forget(service_manager)
