@@ -70,8 +70,9 @@ class FacilitiesController < ApplicationController
   end
 
   def search
-    content = params[:words][:facility_name]
-
+    if params[:words]!= nil
+      content = params[:words][:facility_name]
+    end
     if content == nil || content == ""
       @facilities = Facility.paginate(page: params[:page])
     else

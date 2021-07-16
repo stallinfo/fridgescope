@@ -26,6 +26,7 @@ Rails.application.routes.draw do
   post '/service_search', to: 'services#search'
   get '/service_confirmation_path', to: 'services#confirmation'
   post '/facility_search', to: 'facilities#search'
+  get '/facility_search', to: 'facilities#search'
 
 
   #API
