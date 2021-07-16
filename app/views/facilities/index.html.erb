@@ -7,11 +7,11 @@
 
     <div class="index-searchContainer">
       <div class="index-searchTitle">Search by Facility name</div>
-        <%= form_for(:words, url: service_search_path) do |f| %>
+        <%= form_for(:words, url: facility_search_path) do |f| %>
           <% if @content != nil %>
-            <%= f.text_field :service_name, placeholder: "search...", class: 'form-control', value: @content %>
+            <%= f.text_field :facility_name, placeholder: "search...", class: 'form-control', value: @content %>
           <% else %>
-            <%= f.text_field :service_name, placeholder: "search...", class: 'form-control' %>
+            <%= f.text_field :facility_name, placeholder: "search...", class: 'form-control' %>
           <% end %>
            
           <%= link_to "Clear", "#", class: "btn btn-secondary", type: :reset %>
