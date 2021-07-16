@@ -1,45 +1,68 @@
 <div class="edit-pageContainer">
+      <%= form_with(model: @service) do |form| %>
       <div class="edit-title">Service content</div>
       <div class="edit-inputContainer">
-        <div class="edit-inputName">service ID</div>
-        <input type="text" class="form-control" readOnly />
+        <%= form.label :id, class: "edit-inputName" %>
+        <%= form.text_field :id, class: "form-control", disabled: "true" %>
       </div>
+
       <div class="edit-inputContainer">
-        <div class="edit-inputName">service name</div>
-        <input type="text" class="form-control" />
-      </div>
-      <div class="edit-inputContainer">
-        <div class="edit-inputName">connection phrase</div>
-        <input type="text" class="form-control" />
-      </div>
-      <div class="edit-inputContainer">
-        <div class="edit-inputName">description</div>
-        <input type="text" class="form-control" />
-      </div>
-      <div class="edit-inputContainer">
-        <div class="edit-inputName">update count</div>
-        <input type="text" class="form-control" readOnly />
-      </div>
-      <div class="edit-inputContainer">
-        <div class="edit-inputName">created at</div>
-        <input type="text" class="form-control" readOnly />
-      </div>
-      <div class="edit-inputContainer">
-        <div class="edit-inputName">created by</div>
-        <input type="text" class="form-control" readOnly />
-      </div>
-      <div class="edit-inputContainer">
-        <div class="edit-inputName">updated at</div>
-        <input type="text" class="form-control" readOnly />
-      </div>
-      <div class="edit-inputContainer">
-        <div class="edit-inputName">updated by</div>
-        <input type="text" class="form-control" readOnly />
-      </div>
+    <%= form.label :name , "Name (max length 60 chars)", class: "edit-inputName" %>
+    <%= form.text_field :name, class: "form-control" %>
+  </div>
+
+  <div class="edit-inputContainer">
+    <%= form.label :connection_phrase, "Connection phrase (max length 16 chars", class: "edit-inputName" %>
+    <%= form.text_field :connection_phrase, class: "form-control" %>
+  </div>
+
+  <div class="edit-inputContainer">
+    <%= form.label :description,"Description (max lenght 200 chars)", class: "edit-inputName" %>
+    <%= form.text_area :description, class: "form-control"  %>
+  </div>
+
+  <div class="edit-inputContainer">
+    <%= form.label :update_count, class: "edit-inputName" %>
+    <% if controller.action_name == "create" %>
+      <%= form.text_field :update_count, disabled: "true", class: "form-control", value: "" %>
+    <% else %>
+      <%= form.text_field :update_count, disabled: "true", class: "form-control" %>
+    <% end %>
+  </div>
+
+  <div class="edit-inputContainer">
+    <%= form.label :created_at, class: "edit-inputName" %>
+    <%= form.text_field :created_at, disabled: "true", class: "form-control"  %>
+  </div>
+
+  <div class="edit-inputContainer">
+    <%= form.label :created_by, class: "edit-inputName" %>
+    <% if controller.action_name == "create" %>
+      <%= form.text_field :created_by, disabled: "true", class: "form-control", value: ""  %>
+    <% else %>
+      <%= form.text_field :created_by, disabled: "true", class: "form-control"  %>
+    <% end %>
+  </div>
+  
+  <div class="edit-inputContainer">
+    <%= form.label :updated_at, class: "edit-inputName" %>
+    <%= form.text_field :updated_at, disabled: "true", class: "form-control"  %>
+  </div>
+
+  <div class="edit-inputContainer">
+    <%= form.label :updated_by, class: "edit-inputName" %>
+    <% if controller.action_name == "create" %>
+      <%= form.text_field :updated_by, disabled: "true", class: "form-control", value: "" %>
+    <% else %>
+      <%= form.text_field :updated_by, disabled: "true", class: "form-control" %>
+    <% end %>
+  </div>
+
       <div class="edit-footer">
-        <button class="btn btn-danger">Delete</button>
+        <%= link_to 'Delete', @service, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %>
         <div></div>
-        <button class="btn btn-primary edit-update">Update</button>
-        <button class="btn btn-secondary">Cancel</button>
+        <%= form.submit class: "btn btn-primary edit-update" %>
+        <%= link_to "cancel",services_path, class: "btn btn-secondary" %>
       </div>
+      <% end %>
     </div>
