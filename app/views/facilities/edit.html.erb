@@ -1,50 +1,84 @@
 <div class="edit-pageContainer">
   <div class="edit-title">Facility content</div>
-  <div class="edit-contentContainer">
-    <div class="edit-inputsContainer">
-        <div class="edit-inputContainer">
-            <div class="edit-inputName">facility ID</div>
-            <input type="text" class="form-control" readOnly />
+  <%= form_with(model: @facility) do |form| %>
+    <div class="edit-contentContainer">
+        <div class="edit-inputsContainer">
+
+            <%= form.hidden_field :service_id %>
+            <div class="edit-inputContainer">
+                <%= form.label :id, class: "edit-inputName" %>
+                <%= form.text_field :id, class: 'form-control', disabled: 'true' %>          
+            </div>
+
+            <div class="edit-inputContainer">
+                <%= form.label :name, class: "edit-inputName" %>
+                <%= form.text_field :name, class: 'form-control' %>
+            </div>
+
+            <div class="edit-inputContainer">
+                <%= form.label :latitude, class: "edit-inputName" %>
+                <%= form.text_field :latitude, class: 'form-control' %>
+            </div>
+
+            <div class="edit-inputContainer">
+                <%= form.label :longitude, class: "edit-inputName" %>
+                <%= form.text_field :longitude, class: 'form-control' %>
+            </div>
+
+            <div class="edit-inputContainer">
+                <%= form.label :update_count, class: "edit-inputName" %>
+                <%= form.number_field :update_count, class: 'form-control', disabled: 'true' %>
+            </div>
+            
+            <div class="edit-inputContainer">
+                <%= form.label :created_at, class: "edit-inputName" %>
+                <%= form.text_field :created_at, class: 'form-control', disabled: 'true'  %>
+            </div>
+
+            <div class="edit-inputContainer">
+                <%= form.label :created_by, class: "edit-inputName" %>
+                <%= form.text_field :created_by, class: 'form-control', disabled: 'true'  %>
+            </div>
+
+            <%= form.hidden_field :created_api_caller %>
+
+            <div class="edit-inputContainer">
+                <%= form.label :updated_at, class: "edit-inputName" %>
+                <%= form.text_field :updated_at, class: 'form-control', disabled: 'true'  %>
+            </div>
+
+            <div class="edit-inputContainer">
+                <%= form.label :updated_by, class: "edit-inputName" %>
+                <%= form.text_field :updated_by, class: 'form-control', disabled: 'true'  %>
+            </div>
+            <%= form.hidden_field :updated_api_caller %>
         </div>
-        <div class="edit-inputContainer">
-            <div class="edit-inputName">facility name</div>
-            <input type="text" class="form-control" />
+        
+        <div class="edit-map">
+            <div id="map"></div>
         </div>
-        <div class="edit-inputContainer">
-            <div class="edit-inputName">latitude</div>
-            <input type="text" class="form-control" readOnly />
-        </div>
-        <div class="edit-inputContainer">
-            <div class="edit-inputName">longitude</div>
-            <input type="text" class="form-control" readOnly />
-        </div>
-        <div class="edit-inputContainer">
-            <div class="edit-inputName">update count</div>
-            <input type="text" class="form-control" readOnly />
-        </div>
-        <div class="edit-inputContainer">
-            <div class="edit-inputName">created at</div>
-            <input type="text" class="form-control" readOnly />
-        </div>
-        <div class="edit-inputContainer">
-            <div class="edit-inputName">created by</div>
-            <input type="text" class="form-control" readOnly />
-        </div>
-        <div class="edit-inputContainer">
-            <div class="edit-inputName">updated at</div>
-            <input type="text" class="form-control" readOnly />
-        </div>
-        <div class="edit-inputContainer">
-            <div class="edit-inputName">updated by</div>
-            <input type="text" class="form-control" readOnly />
-        </div>
+
     </div>
-    <div class="edit-map"></div>
-  </div>
-  <div class="edit-footer">
-    <button class="btn btn-danger">Delete</button>
-    <div></div>
-    <button class="btn btn-primary edit-update">Update</button>
-    <button class="btn btn-secondary">Cancel</button>
-  </div>
+    <div class="edit-footer">
+        <%= link_to 'Delete', @facility, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %>
+        <div></div>
+        <%= form.submit "Update", class: "btn btn-primary edit-update" %>
+        <%= link_to 'Cancel', facilities_path, class: "btn btn-secondary" %>
+    </div>
+  <% end %>
 </div>
+
+<script
+      src="https://maps.googleapis.com/maps/api/js?key=<%= @googleapikey %>&callback=initMap&libraries=&v=weekly"
+      async>
+    </script>
+    <script>
+  let map;
+
+  function initMap() {
+    map = new google.maps.Map(document.getElementById("map"), {
+      center: { lat: 34.96044797500092, lng: 138.4044472577484 },
+      zoom: 15,
+    });
+  }
+</script>

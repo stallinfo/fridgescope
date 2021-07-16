@@ -61,7 +61,8 @@
       <%= link_to 'Delete', @facility_manager, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %>
       <div></div>
       <%= f.submit "Update", class: "btn btn-primary edit-update" %> 
-      <button class="btn btn-secondary">Cancel</button>
+    
+      <%= link_to 'Cancel', facilities_path, class: "btn btn-secondary" %>
     </div>
     
   <% end %>
