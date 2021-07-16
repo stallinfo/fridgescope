@@ -1,45 +1,68 @@
 <div class="edit-pageContainer">
-      <div class="edit-title">Facility manager content</div>
-      <div class="edit-inputContainer">
-        <div class="edit-inputName">facility manager ID</div>
-        <input type="text" class="form-control" readOnly />
-      </div>
-      <div class="edit-inputContainer">
-        <div class="edit-inputName">facility manager name</div>
-        <input type="text" class="form-control" />
-      </div>
-      <div class="edit-inputContainer">
-        <div class="edit-inputName">Identify</div>
-        <input type="text" class="form-control" />
-      </div>
-      <div class="edit-inputContainer">
-        <div class="edit-inputName">password</div>
-        <input type="text" class="form-control" />
-      </div>
-      <div class="edit-inputContainer">
-        <div class="edit-inputName">update count</div>
-        <input type="text" class="form-control" readOnly />
-      </div>
-      <div class="edit-inputContainer">
-        <div class="edit-inputName">created at</div>
-        <input type="text" class="form-control" readOnly />
-      </div>
-      <div class="edit-inputContainer">
-        <div class="edit-inputName">created by</div>
-        <input type="text" class="form-control" readOnly />
-      </div>
-      <div class="edit-inputContainer">
-        <div class="edit-inputName">updated at</div>
-        <input type="text" class="form-control" readOnly />
-      </div>
-      <div class="edit-inputContainer">
-        <div class="edit-inputName">updated by</div>
-        <input type="text" class="form-control" readOnly />
-      </div>
-      <div class="edit-footer">
-        <button class="btn btn-danger">Delete</button>
-        <div></div>
-        <button class="btn btn-primary edit-update">Update</button>
-        <button class="btn btn-secondary">Cancel</button>
-      </div>
+  <div class="edit-title">Facility manager content</div>
+  <%= form_with(model: @facility_manager, local: true) do |f| %> 
+    <%= f.hidden_field :facility_id, value: @facility.id %>
+    
+    <div class="edit-inputContainer">
+      <%= f.label :id, class: "edit-inputName" %>
+      <%= f.text_field :id, class: 'form-control', disabled: 'true' %>
     </div>
+
+    <div class="edit-inputContainer">
+      <%= f.label :name, class: "edit-inputName" %>
+      <%= f.text_field :name, class: 'form-control' %>
+    </div>
+
+    <div class="edit-inputContainer">
+      <%= f.label :identify, class: "edit-inputName" %>
+      <%= f.text_field :identify, class: 'form-control' %>
+    </div>
+
+    <div class="edit-inputContainer">
+      <%= f.hidden_field :email, class: 'form-control' %>
+    </div>
+
+    <div class="edit-inputContainer">
+      <%= f.label :password, class: "edit-inputName" %>
+      <%= f.password_field :password, class: 'form-control' %>
+    </div>
+
+    <div class="edit-inputContainer">
+      <%= f.label :update_count, class: "edit-inputName" %>
+      <% if controller.action_name == "create" %>
+          <%= f.text_field :update_count, class: 'form-control', disabled: 'true', value: "" %>
+      <% else %>
+          <%= f.text_field :update_count, class: 'form-control', disabled: 'true' %>
+      <% end %>
+    </div>
+
+    <div class="edit-inputContainer">
+      <%= f.label :created_at, class: "edit-inputName" %>
+      <%= f.text_field :created_at, class: 'form-control', disabled: 'true' %>
+    </div>
+
+    <div class="edit-inputContainer">
+      <%= f.label :created_by, class: "edit-inputName" %>
+      <%= f.text_field :created_by, class: 'form-control', disabled: 'true' %>
+    </div>
+
+    <div class="edit-inputContainer">
+      <%= f.label :updated_at, class: "edit-inputName" %>
+      <%= f.text_field :updated_at, class: 'form-control', disabled: 'true' %>
+    </div>
+
+    <div class="edit-inputContainer">
+      <%= f.label :updated_by, class: "edit-inputName" %>
+      <%= f.text_field :updated_by, class: 'form-control', disabled: 'true' %>
+    </div>
+
+    <div class="edit-footer">
+      
+      <%= link_to 'Delete', @facility_manager, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %>
+      <div></div>
+      <%= f.submit "Update", class: "btn btn-primary edit-update" %> 
+      <button class="btn btn-secondary">Cancel</button>
+    </div>
+    
+  <% end %>
+</div>
