@@ -76,6 +76,7 @@ class ApisController < ApplicationController
                     fridges[fridge_count]["description"] = fridge.description
                     fridges[fridge_count]["lat"] = fridge.latitude
                     fridges[fridge_count]["lon"] = fridge.longitude
+                    fridges[fridge_count]["date"] = fridge.updated_at
                     fridges[fridge_count]["rate"] = fridge.initial_storage_rate
                     if fridge.initial_storage_rate != nil && facs[facs_count]["rate"] > fridge.initial_storage_rate
                         facs[facs_count]["rate"] = fridge.initial_storage_rate
