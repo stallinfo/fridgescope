@@ -1,4 +1,4 @@
-.pageContainer {
+.facilities-pageContainer {
   position: fixed;
   top: 0;
   left: 0;
@@ -11,24 +11,25 @@
   flex-direction: column;
   align-items: center;
   gap: 1rem;
+  overflow: auto;
 }
-.logo {
+.facilities-logo {
   align-self: flex-start;
   font-size: 2rem;
   font-weight: bold;
   color: white;
 }
-.title {
+.facilities-title {
   font-size: 2rem;
   font-weight: bold;
   color: white;
 }
-.signOut {
+.facilities-signOut {
   position: fixed;
   top: 2rem;
   right: 2rem;
 }
-.index-serviceContainer {
+.facilities-index-serviceContainer {
   width: 100%;
   padding: 0 0.5rem;
   background-color: white;
@@ -36,15 +37,15 @@
   align-items: center;
   gap: 2rem;
 }
-.index-serviceArrow {
+.facilities-index-serviceArrow {
   font-size: 2rem;
   font-weight: bold;
 }
-.index-serviceNameLabel {
+.facilities-index-serviceNameLabel {
   color: rgb(114, 209, 177);
 }
 
-.index-managersContainer {
+.facilities-index-managersContainer {
   color: white;
   background-color: rgb(196, 196, 196);
   width: 100%;
@@ -53,47 +54,47 @@
   flex-direction: column;
   gap: 1rem;
 }
-.index-managersTable {
+.facilities-index-managersTable {
   width: 100%;
   display: flex;
   flex-direction: column;
   gap: 0.2rem;
 }
-.index-managerRow {
+.facilities-index-managerRow {
   width: 100%;
   display: flex;
   gap: 0.5rem;
 }
-.index-managerRow button {
+.facilities-index-managerRow button {
   color: rgb(114, 209, 177);
   flex-grow: 2;
 }
-.index-managerNameHead {
+.facilities-index-managerNameHead {
   width: 50%;
   text-align: center;
 }
-.index-managerIDHead {
+.facilities-index-managerIDHead {
   width: 30%;
   text-align: center;
 }
-.index-managerName {
+.facilities-index-managerName {
   width: 50%;
   background: white;
   color: black;
   padding: 0.5rem;
 }
-.index-managerID {
+.facilities-index-managerID {
   width: 30%;
   background: white;
   color: black;
   padding: 0.5rem;
   text-align: center;
 }
-.index-servicesFooter {
+.facilities-index-servicesFooter {
   display: flex;
   gap: 1rem;
 }
-.edit-pageContainer {
+.facilities-edit-pageContainer {
   width: 100vw;
   color: rgb(114, 209, 177);
   background-color: white;
@@ -104,64 +105,66 @@
   align-items: center;
   gap: 1rem;
 }
-.edit-title {
+.facilities-edit-title {
   font-size: 2rem;
   font-weight: bold;
 }
-.edit-contentContainer {
+.facilities-edit-contentContainer {
   display: flex;
   width: 100%;
   gap: 1rem;
   align-items: center;
 }
-.edit-inputsContainer {
+.facilities-edit-inputsContainer {
   width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 1rem;
 }
-.edit-map {
+.facilities-edit-map {
   flex-shrink: 0;
   background-color: aquamarine;
   width: 20rem;
   height: 20rem;
 }
-.edit-inputContainer {
+.facilities-edit-inputContainer {
   width: 100%;
   display: flex;
   align-items: center;
   gap: 1rem;
 }
-.edit-inputName {
+.facilities-edit-inputName {
   flex-basis: 30rem;
   text-align: right;
 }
-.edit-footer {
+.facilities-edit-footer {
   width: 100%;
   display: flex;
   gap: 1rem;
 }
-.edit-footer button {
+.facilities-edit-footer button,
+.facilities-edit-footer a {
+  height: min-content;
   width: 10rem;
   flex-shrink: 0;
 }
-.edit-footer div {
+.facilities-edit-footer div {
   width: 100%;
 }
 @media screen and (max-width: 600px) {
-  .edit-contentContainer {
+  .facilities-edit-contentContainer {
     flex-direction: column;
   }
-  .edit-footer {
+  .facilities-edit-footer {
     flex-direction: column;
     align-items: center;
     flex-direction: column-reverse;
   }
-  .edit-footer button {
+  .facilities-edit-footer button {
     width: 100%;
   }
-  .edit-update {
+  .facilities-edit-update {
     order: 1;
   }
 }
