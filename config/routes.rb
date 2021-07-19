@@ -33,6 +33,7 @@ Rails.application.routes.draw do
   get 'apis/login'
   get 'apis/lightlogin'
   post '/uploadimage', to: 'apis#upload'
+  get 'apis/retrieve_facilities'
 
 
   resources :administrators
