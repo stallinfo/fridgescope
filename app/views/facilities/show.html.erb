@@ -1,29 +1,34 @@
-<h1>List of facility managers</h1>
-<div class="row">
-  <div class="col-4">
-    <h3><%= link_to "⏪", facilities_path %>Selected facility name</h3>
+<div class="facilities-pageContainer">
+  <div class="facilities-logo">Fridge Scope</div>
+  <button class="signOut btn btn-light">Sign Out</button>
+  <div class="facilities-title">List of facility managers</div>
+  <div class="facilities-index-serviceContainer">
+    <div class="facilities-index-serviceArrow">❮</div>
+    <div class="facilities-index-serviceNameLabel">Selected Facility name</div>
+    <div>Shizuoka-city Central Community Center</div>
   </div>
-  <div class="col-8">
-    <h3><%= @facility.name %></h3>
+  <div class="facilities-index-managersContainer">
+    <div class="facilities-index-managersTable">
+      <div class="facilities-index-managerRow">
+        <div class="facilities-index-managerNameHead">Facility Manager Name</div>
+        <div class="facilities-index-managerIDHead">ID</div>
+      </div>
+      <div class="facilities-index-managerRow">
+        <div class="facilities-index-managerName">Kohei Otani</div>
+        <div class="facilities-index-managerID">ABCd#.0012</div>
+        <button class="btn btn-light">Edit</button>
+      </div>
+    </div>
+    <div class="facilities-index-servicesFooter">
+      <button type="button" class="btn btn-primary">
+        Add New Facility Manager
+      </button>
+      <button type="button" class="btn btn-secondary">
+        &lt;&lt;Prev
+      </button>
+      <button type="button" class="btn btn-secondary">
+        &gt;&gt;Next
+      </button>
+    </div>
   </div>
 </div>
-<table class="table table-striped">
-  <thead>
-    <tr>
-      <th>Facility Manager Name</th>
-      <th>ID</th>
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @facility_managers.each do |facility_manager| %>
-      <tr>
-        <td><%= facility_manager.name %></td>
-        <td><%= facility_manager.identify %></td> 
-        <td class="text-end"><%= link_to 'Edit', edit_facility_manager_path(facility_manager) %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-<%= link_to 'Add New Facility Manager', new_facility_manager_path(:id => @facility.id), class: "btn btn-warning" %><%= will_paginate(@facility_managers, :param_name => 'facility_manager_page', :params => {:tab => 0}, :renderer => WillPaginate::ActionView::Bootstrap4LinkRenderer) %>
-
