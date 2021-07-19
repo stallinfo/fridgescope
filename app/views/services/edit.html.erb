@@ -1,12 +1,12 @@
 <div class="edit-pageContainer">
-      <%= form_with(model: @service) do |form| %>
-      <div class="edit-title">Service content</div>
-      <div class="edit-inputContainer">
-        <%= form.label :id, class: "edit-inputName" %>
-        <%= form.text_field :id, class: "form-control", disabled: "true" %>
-      </div>
+  <div class="edit-title">Service content</div>
+  <%= form_with(model: @service) do |form| %>
+  <div class="edit-inputContainer">
+    <%= form.label :id, class: "edit-inputName" %>
+    <%= form.text_field :id, class: "form-control", disabled: "true" %>
+  </div>
 
-      <div class="edit-inputContainer">
+  <div class="edit-inputContainer">
     <%= form.label :name , "Name (max length 60 chars)", class: "edit-inputName" %>
     <%= form.text_field :name, class: "form-control" %>
   </div>
