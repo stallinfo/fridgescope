@@ -67,10 +67,7 @@
   width: 100%;
   display: flex;
   gap: 0.5rem;
-}
-.index-serviceRow button {
-  color: rgb(73, 178, 214);
-  flex-grow: 2;
+  align-items: center;
 }
 .index-serviceNameHead {
   width: 50%;
@@ -114,10 +111,6 @@
   display: flex;
   align-items: center;
   gap: 1rem;
-}
-.edit-inputName {
-  flex-basis: 30rem;
-  text-align: right;
 }
 .edit-footer {
   width: 100%;

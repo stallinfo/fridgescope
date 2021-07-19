@@ -30,7 +30,8 @@
 }
 .index-serviceContainer {
   width: 100%;
-  padding: 0 0.5rem;
+  font-size: 1rem;
+  padding: 0.5rem;
   background-color: white;
   display: flex;
   align-items: center;
@@ -39,9 +40,6 @@
 .index-serviceArrow {
   font-size: 2rem;
   font-weight: bold;
-}
-.index-serviceNameLabel {
-  color: rgb(114, 209, 177);
 }
 
 .index-managersContainer {
@@ -119,7 +117,8 @@
   gap: 1rem;
 }
 .edit-inputName {
-  flex-basis: 30rem;
+  width: 30%;
+  min-width: 80px;
   text-align: right;
 }
 .edit-footer {
