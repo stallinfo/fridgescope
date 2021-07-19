@@ -1,45 +1,28 @@
-<div class="edit-pageContainer">
-      <div class="edit-title">Service manager content</div>
-      <div class="edit-inputContainer">
-        <div class="edit-inputName">service manager ID</div>
-        <input type="text" class="form-control" readOnly />
-      </div>
-      <div class="edit-inputContainer">
-        <div class="edit-inputName">service manager name</div>
-        <input type="text" class="form-control" />
-      </div>
-      <div class="edit-inputContainer">
-        <div class="edit-inputName">Identify</div>
-        <input type="text" class="form-control" />
-      </div>
-      <div class="edit-inputContainer">
-        <div class="edit-inputName">password</div>
-        <input type="text" class="form-control" />
-      </div>
-      <div class="edit-inputContainer">
-        <div class="edit-inputName">update count</div>
-        <input type="text" class="form-control" readOnly />
-      </div>
-      <div class="edit-inputContainer">
-        <div class="edit-inputName">created at</div>
-        <input type="text" class="form-control" readOnly />
-      </div>
-      <div class="edit-inputContainer">
-        <div class="edit-inputName">created by</div>
-        <input type="text" class="form-control" readOnly />
-      </div>
-      <div class="edit-inputContainer">
-        <div class="edit-inputName">updated at</div>
-        <input type="text" class="form-control" readOnly />
-      </div>
-      <div class="edit-inputContainer">
-        <div class="edit-inputName">updated by</div>
-        <input type="text" class="form-control" readOnly />
-      </div>
-      <div class="edit-footer">
-        <button class="btn btn-danger">Delete</button>
-        <div></div>
-        <button class="btn btn-primary edit-update">Update</button>
-        <button class="btn btn-secondary">Cancel</button>
-      </div>
-    </div>
+<h1>All service　managers</h1>
+ <div class="row">
+   <div class="col-4">
+     <h3><%= link_to "⏪", services_path %>Selected service name</h3>
+   </div>
+   <div class="col-8">
+     <h3><%= @service.name %></h3>
+   </div>
+ </div>
+ <table class="table table-striped">
+   <thead>
+     <tr>
+       <th>Service Manager Name</th>
+       <th>ID</th>
+       <th></th>
+     </tr>
+   </thead>
+   <tbody>
+     <% @service_managers.each do |service_manager| %>
+       <tr>
+         <td><%= service_manager.name %></td>
+         <td><%= service_manager.identify %></td> 
+         <td class="text-end"><%= link_to 'Edit', edit_service_manager_path(service_manager) %></td>
+       </tr>
+     <% end %>
+   </tbody>
+ </table>
+ <%= link_to 'Add New Service Manager', new_service_manager_path(:id => @service.id), class: "btn btn-warning" %><%= will_paginate(@service_managers, :param_name => 'service_manager_page', :params => {:tab => 0}, :renderer => WillPaginate::ActionView::Bootstrap4LinkRenderer) %>
