@@ -1,68 +1,68 @@
-<div class="edit-pageContainer">
-  <div class="edit-title">Facility content</div>
+<div class="facilities-edit-pageContainer">
+  <div class="facilities-edit-title">Facility content</div>
   <%= form_with(model: @facility) do |form| %>
-    <div class="edit-contentContainer">
-        <div class="edit-inputsContainer">
+    <div class="facilities-edit-contentContainer">
+        <div class="facilities-edit-inputsContainer">
 
             <%= form.hidden_field :service_id %>
-            <div class="edit-inputContainer">
-                <%= form.label :id, class: "edit-inputName" %>
+            <div class="facilities-edit-inputContainer">
+                <%= form.label :id, class: "facilities-edit-inputName" %>
                 <%= form.text_field :id, class: 'form-control', disabled: 'true' %>          
             </div>
 
-            <div class="edit-inputContainer">
-                <%= form.label :name, class: "edit-inputName" %>
+            <div class="facilities-edit-inputContainer">
+                <%= form.label :name, class: "facilities-edit-inputName" %>
                 <%= form.text_field :name, class: 'form-control' %>
             </div>
 
-            <div class="edit-inputContainer">
-                <%= form.label :latitude, class: "edit-inputName" %>
+            <div class="facilities-edit-inputContainer">
+                <%= form.label :latitude, class: "facilities-edit-inputName" %>
                 <%= form.text_field :latitude, class: 'form-control' %>
             </div>
 
-            <div class="edit-inputContainer">
-                <%= form.label :longitude, class: "edit-inputName" %>
+            <div class="facilities-edit-inputContainer">
+                <%= form.label :longitude, class: "facilities-edit-inputName" %>
                 <%= form.text_field :longitude, class: 'form-control' %>
             </div>
 
-            <div class="edit-inputContainer">
-                <%= form.label :update_count, class: "edit-inputName" %>
+            <div class="facilities-edit-inputContainer">
+                <%= form.label :update_count, class: "facilities-edit-inputName" %>
                 <%= form.number_field :update_count, class: 'form-control', disabled: 'true' %>
             </div>
             
-            <div class="edit-inputContainer">
-                <%= form.label :created_at, class: "edit-inputName" %>
+            <div class="facilities-edit-inputContainer">
+                <%= form.label :created_at, class: "facilities-edit-inputName" %>
                 <%= form.text_field :created_at, class: 'form-control', disabled: 'true'  %>
             </div>
 
-            <div class="edit-inputContainer">
-                <%= form.label :created_by, class: "edit-inputName" %>
+            <div class="facilities-edit-inputContainer">
+                <%= form.label :created_by, class: "facilities-edit-inputName" %>
                 <%= form.text_field :created_by, class: 'form-control', disabled: 'true'  %>
             </div>
 
             <%= form.hidden_field :created_api_caller %>
 
-            <div class="edit-inputContainer">
-                <%= form.label :updated_at, class: "edit-inputName" %>
+            <div class="facilities-edit-inputContainer">
+                <%= form.label :updated_at, class: "facilities-edit-inputName" %>
                 <%= form.text_field :updated_at, class: 'form-control', disabled: 'true'  %>
             </div>
 
-            <div class="edit-inputContainer">
-                <%= form.label :updated_by, class: "edit-inputName" %>
+            <div class="facilities-edit-inputContainer">
+                <%= form.label :updated_by, class: "facilities-edit-inputName" %>
                 <%= form.text_field :updated_by, class: 'form-control', disabled: 'true'  %>
             </div>
             <%= form.hidden_field :updated_api_caller %>
         </div>
         
-        <div class="edit-map">
+        <div class="facilities-edit-map">
             <div id="map"></div>
         </div>
 
     </div>
-    <div class="edit-footer">
+    <div class="facilities-edit-footer">
         <%= link_to 'Delete', @facility, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %>
         <div></div>
-        <%= form.submit "Update", class: "btn btn-primary edit-update" %>
+        <%= form.submit "Update", class: "btn btn-primary facilities-edit-update" %>
         <%= link_to 'Cancel', facilities_path, class: "btn btn-secondary" %>
     </div>
   <% end %>

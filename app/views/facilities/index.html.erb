@@ -1,9 +1,9 @@
 <div class="serviceManagerSessions-pageContainer">
-  <div class="logo">Fridge Scope</div>
+  <div class="facilities-logo">Fridge Scope</div>
 
-    <%= link_to "log out", service_manager_logout_path, method: :delete, class: "signOut" %>
+    <%= link_to "log out", service_manager_logout_path, method: :delete, class: "btn btn-light facilities-signOut" %>
 
-    <div class="title">List of facilities</div>
+    <div class="facilities-title">List of facilities</div>
 
     <div class="index-searchContainer">
       <div class="index-searchTitle">Search by Facility name</div>
@@ -30,7 +30,7 @@
             </div>
           <% end %>  
         </div>
-        <div class="index-servicesFooter">
+        <div class="facilities-index-servicesFooter">
           <%= link_to 'Add New Service', new_facility_path, class: "btn btn-primary" %>
           <%= will_paginate(@facilities, :param_name => 'facility_page', :params => {:tab => 0}, :renderer => WillPaginate::ActionView::Bootstrap4LinkRenderer) %>
         </div>
