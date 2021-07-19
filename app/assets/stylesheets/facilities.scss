@@ -31,7 +31,7 @@
 }
 .facilities-index-serviceContainer {
   width: 100%;
-  padding: 0 0.5rem;
+  padding: 0.5rem;
   background-color: white;
   display: flex;
   align-items: center;
@@ -95,6 +95,12 @@
   gap: 1rem;
 }
 .facilities-edit-pageContainer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  overflow: auto;
   width: 100vw;
   color: rgb(114, 209, 177);
   background-color: white;
