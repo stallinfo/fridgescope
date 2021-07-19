@@ -3,7 +3,9 @@
   <button class="signOut btn btn-light">Sign Out</button>
   <div class="facilities-title">List of facility managers</div>
   <div class="facilities-index-serviceContainer">
-    <div class="facilities-index-serviceArrow">❮</div>
+    <div class="facilities-index-serviceArrow">
+    <%= link_to '❮', facilities_path, class: "btn btn-light" %>
+    </div>
     <div class="facilities-index-serviceNameLabel">Selected Facility name</div>
     <div>Shizuoka-city Central Community Center</div>
   </div>
@@ -13,11 +15,13 @@
         <div class="facilities-index-managerNameHead">Facility Manager Name</div>
         <div class="facilities-index-managerIDHead">ID</div>
       </div>
-      <div class="facilities-index-managerRow">
-        <div class="facilities-index-managerName">Kohei Otani</div>
-        <div class="facilities-index-managerID">ABCd#.0012</div>
-        <button class="btn btn-light">Edit</button>
-      </div>
+      <% @facility.facility_managers.each do | facility_manager | %>
+        <div class="facilities-index-managerRow">
+          <div class="facilities-index-managerName"><%= facility_manager.name %></div>
+          <div class="facilities-index-managerID"><%= facility_manager.identify %> </div>
+          <%= link_to 'Edit', edit_facility_manager_path(facility_manager), class: "btn btn-light" %>
+        </div>
+      <% end %>
     </div>
     <div class="facilities-index-servicesFooter">
       <button type="button" class="btn btn-primary">
