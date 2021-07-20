@@ -179,6 +179,24 @@ class ApisController < ApplicationController
         end
 
     end
+    
+    def get_fridge
+        identify = params[:identify]
+        password = params[:password]
+        facility_manager = FacilityManager.find_by(identify: identify)
+        fridge_id = params[:fridge_id].to_i
+        if facility_manager && facility_manager.authenticate(password)
+            fridge = Fridge.find(fridge_id)
+            if fridge.fridge_latest_states.count == 0
+                rate = fridge.initial_storage_rate
+            else
+                rate = fridge.fridge_latest_states.first.current_storage_rate
+            end
+            jsonMsg(200,"accepted",[rate])
+        else
+            jsonMsg(500,"Rejected",[])
+        end
+    end
 
     private 
         def jsonMsg(errNum, errMessage, results)
