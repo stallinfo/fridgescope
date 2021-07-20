@@ -79,7 +79,11 @@ class ApisController < ApplicationController
                     fridges[fridge_count]["date"] = fridge.updated_at
                     fridges[fridge_count]["rate"] = fridge.initial_storage_rate
                     if fridge.initial_storage_rate != nil && facs[facs_count]["rate"] > fridge.initial_storage_rate
-                        facs[facs_count]["rate"] = fridge.initial_storage_rate       
+                        facs[facs_count]["rate"] = fridge.initial_storage_rate
+                        
+                    else
+                        facs[facs_count]["rate"] = 0
+       
                     end
                     if fridge.initial_picture_path.attached?
                         fridges[fridge_count]["image"] = rails_blob_path(fridge.initial_picture_path , only_path: true)
@@ -137,7 +141,7 @@ class ApisController < ApplicationController
         else
             jsonMsg(500,"Rejected",[])
         end
-        
+
     end
 
     private 
