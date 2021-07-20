@@ -24,7 +24,7 @@
       <% end %>
     </div>
     <div class="facilities-index-servicesFooter">
-      <%= link_to 'Add New Facility Manager', new_facility_manager_path, class: "btn btn-primary" %>
+      <%= link_to 'Add New Facility Manager', new_facility_manager_path(:id => @facility.id), class: "btn btn-primary" %>
       <button type="button" class="btn btn-secondary">
         &lt;&lt;Prev
       </button>
