@@ -77,8 +77,8 @@ class ApisController < ApplicationController
                     fridges[fridge_count]["lat"] = fridge.latitude
                     fridges[fridge_count]["lon"] = fridge.longitude
                     fridges[fridge_count]["date"] = fridge.updated_at
-                    fridges[fridge_count]["rate"] = fridge.initial_storage_rate
-                    if fridge.initial_storage_rate != nil && facs[facs_count]["rate"] > fridge.initial_storage_rate
+                    fridges[fridge_count]["rate"] = fridge.initial_storage_rate.to_i
+                    if fridge.initial_storage_rate != nil && facs[facs_count]["rate"] > fridge.initial_storage_rate.to_i
                         facs[facs_count]["rate"] = fridge.initial_storage_rate.to_i
                     end
                     if fridge.initial_picture_path.attached?
