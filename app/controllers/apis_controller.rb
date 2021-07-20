@@ -60,9 +60,9 @@ class ApisController < ApplicationController
                     update_count = fridge_last.update_count + 1
                     fridge_last.update_attributes(current_picture_path: image, current_storage_rate: initial_storage_rate, update_count: update_count, updated_by: facility_manager.identify)
                 else
-                    FridgeLatestState.create(current_picture_path: image, description: "", fridge_id: fridge_id, update_count: 0, created_by: facility_manager.identify, current_storage_rate: initial_storage_rate)
+                    FridgeLatestState.create(current_picture_path: image, fridge_id: fridge_id, update_count: 0, created_by: facility_manager.identify, current_storage_rate: initial_storage_rate)
                 end
-                FridgePastState.create(current_picture_path: image, description: "", fridge_id: fridge_id, update_count: 0, created_by: facility_manager.identify, current_storage_rate: initial_storage_rate)
+                FridgePastState.create(current_picture_path: image, fridge_id: fridge_id, update_count: 0, created_by: facility_manager.identify, current_storage_rate: initial_storage_rate)
             end
         end
         render json: {result: 0}
