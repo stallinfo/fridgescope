@@ -48,6 +48,7 @@ class ApisController < ApplicationController
         longitude = params[:longitude].to_f
         fridge_id = params[:fridge_id].to_i
         facility_manager = FacilityManager.find_by(identify: identify)
+        initial_storage_rate = 0
         if facility_manager.authenticate(password)
             facility = Facility.find(facility_manager.facility_id)
             initial_storage_rate = density_calculation(image)
@@ -65,7 +66,7 @@ class ApisController < ApplicationController
                 FridgePastState.create(current_picture_path: image, fridge_id: fridge_id, update_count: 0, created_by: facility_manager.identify, current_storage_rate: initial_storage_rate)
             end
         end
-        render json: {result: 0}
+        render json: {result: initial_storage_rate}
     end
 
     def retrieve_facilities
