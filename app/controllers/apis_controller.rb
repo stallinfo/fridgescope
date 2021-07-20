@@ -101,7 +101,7 @@ class ApisController < ApplicationController
                             fridges[fridge_count]["image"] = "Homer Simpson"
                         end
                     else
-                        fridge_last = fridge_latest_states.first
+                        fridge_last = fridge.fridge_latest_states.first
                         if fridge_last.current_storage_rate != nil && facs[facs_count]["rate"] > fridge_last.current_storage_rate.to_i
                             facs[facs_count]["rate"] = fridge_last.current_storage_rate.to_i
                         end
