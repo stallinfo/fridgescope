@@ -80,10 +80,6 @@ class ApisController < ApplicationController
                     fridges[fridge_count]["rate"] = fridge.initial_storage_rate
                     if fridge.initial_storage_rate != nil && facs[facs_count]["rate"] > fridge.initial_storage_rate
                         facs[facs_count]["rate"] = fridge.initial_storage_rate
-                        
-                    else
-                        facs[facs_count]["rate"] = 0
-                        
                     end
                     if fridge.initial_picture_path.attached?
                         fridges[fridge_count]["image"] = rails_blob_path(fridge.initial_picture_path , only_path: true)
@@ -101,6 +97,45 @@ class ApisController < ApplicationController
     end
 
     def retrieve_fridges
+        identify = params[:identify] #facility manager
+        password = params[:password] #facility manager
+        facility_manager = FacilityManager.find_by(identify: identify)
+        if facility_manager && facility_manager.authenticate(password)
+            fac = {}
+            fac["name"] = facility_manager.facility.name
+            fac["lat"] = facility_manager.facility.latitude
+            fac["lon"] = facility_manager.facility.longitude
+            fac["id"] = facility_manager.facility.id
+            fac["rate"] = 100
+            fridges = []
+            fridge_count = 0
+            if facility_manager.facility.fridges.count > 0
+                facility_manager.facility.fridges.each do | fridge |
+                    fridges[fridge_count] = {}
+                    fridges[fridge_count]["id"] = fridge.id
+                    fridges[fridge_count]["name"] = fridge.name
+                    fridges[fridge_count]["description"] = fridge.description
+                    fridges[fridge_count]["lat"] = fridge.latitude
+                    fridges[fridge_count]["lon"] = fridge.longitude
+                    fridges[fridge_count]["date"] = fridge.updated_at
+                    fridges[fridge_count]["rate"] = fridge.initial_storage_rate
+                    if fridge.initial_storage_rate != nil && fac["rate"] > fridge.initial_storage_rate
+                        fac["rate"] = fridge.initial_storage_rate
+                    end
+                    if fridge.initial_picture_path.attached?
+                        fridges[fridge_count]["image"] = rails_blob_path(fridge.initial_picture_path , only_path: true)
+                    else
+                        fridges[fridge_count]["image"] = "Homer Simpson"
+                    end
+                    fridge_count += 1
+                end
+            end
+            fac["fridges"] = fridges
+            jsonString = {facility: fac}
+            render json: jsonString.to_json
+        else
+            jsonMsg(500,"Rejected",[])
+        end
     end
 
     private 
