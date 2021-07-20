@@ -185,14 +185,19 @@ class ApisController < ApplicationController
         password = params[:password]
         facility_manager = FacilityManager.find_by(identify: identify)
         fridge_id = params[:fridge_id].to_i
+        if fridge_id > 0
+            @fridge = Fridge.find(fridge_id)
+        else
+            @fridge = facility_manager.facility.fridges.last
+        end
         if facility_manager && facility_manager.authenticate(password)
-            fridge = Fridge.find(fridge_id)
-            if fridge.fridge_latest_states.count == 0
-                rate = fridge.initial_storage_rate
+
+            if @fridge.fridge_latest_states.count == 0
+                rate = @fridge.initial_storage_rate
             else
-                rate = fridge.fridge_latest_states.first.current_storage_rate
+                rate = @fridge.fridge_latest_states.first.current_storage_rate
             end
-            jsonMsg(200,"accepted",[rate])
+            jsonMsg(200,"accepted",[rate, @fridge.id.to_s])
         else
             jsonMsg(500,"Rejected",[])
         end
