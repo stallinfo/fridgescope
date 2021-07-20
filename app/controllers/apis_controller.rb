@@ -191,13 +191,16 @@ class ApisController < ApplicationController
             @fridge = facility_manager.facility.fridges.last
         end
         if facility_manager && facility_manager.authenticate(password)
-
+            image = ""
             if @fridge.fridge_latest_states.count == 0
                 rate = @fridge.initial_storage_rate
+                image = rails_blob_path(@fridge.initial_picture_path , only_path: true)
             else
                 rate = @fridge.fridge_latest_states.first.current_storage_rate
+                image = rails_blob_path(@fridge.fridge_latest_states.first.current_picture_path , only_path: true)
             end
-            jsonMsg(200,"Accepted",[rate, @fridge.id.to_s])
+    
+            jsonMsg(200,"Accepted",[rate, @fridge.id.to_s, image])
         else
             jsonMsg(500,"Rejected",[])
         end
