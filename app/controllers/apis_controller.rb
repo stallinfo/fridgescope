@@ -197,7 +197,7 @@ class ApisController < ApplicationController
             else
                 rate = @fridge.fridge_latest_states.first.current_storage_rate
             end
-            jsonMsg(200,"accepted",[rate, @fridge.id.to_s])
+            jsonMsg(200,"Accepted",[rate, @fridge.id.to_s])
         else
             jsonMsg(500,"Rejected",[])
         end
