@@ -110,6 +110,7 @@ class ApisController < ApplicationController
                         else
                             fridges[fridge_count]["image"] = "Homer Simpson"
                         end
+                        fridges[fridge_count]["rate"] = fridge_last.current_storage_rate.to_i
                     end
                     fridge_count += 1
                 end
@@ -164,6 +165,7 @@ class ApisController < ApplicationController
                         else
                             fridges[fridge_count]["image"] = "Homer Simpson"
                         end
+                        fridges[fridge_count]["rate"] = fridge_last.current_storage_rate.to_i
                     end
                     fridge_count += 1
                 end
