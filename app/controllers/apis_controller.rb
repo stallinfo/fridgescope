@@ -156,8 +156,8 @@ class ApisController < ApplicationController
                         end
                     else
                         fridge_last = fridge.fridge_latest_states.first
-                        if fac["rate"] > fridge.current_storage_rate.to_i
-                            fac["rate"] = fridge.current_storage_rate.to_i
+                        if fac["rate"] > fridge_last.current_storage_rate.to_i
+                            fac["rate"] = fridge_last.current_storage_rate.to_i
                         end
                         if fridge_last.current_picture_path.attached?
                             fridges[fridge_count]["image"] = rails_blob_path(fridge_last.current_picture_path , only_path: true)
