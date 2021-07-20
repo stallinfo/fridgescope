@@ -55,7 +55,7 @@ class ApisController < ApplicationController
                 Fridge.create(name: title, initial_picture_path: image, description: "", facility_id: facility.id, latitude: latitude, longitude: longitude, update_count: 0, initial_storage_rate: initial_storage_rate)
             else
                 fridge = Fridge.find(fridge_id)
-                if fridge.fridge_last_states.count > 0
+                if fridge.fridge_latest_states.count > 0
                     fridge_last = fridge.fridge_latest_states.first
                     update_count = fridge_last.update_count + 1
                     fridge_last.update_attributes(name: title, current_picture_path: image, current_storage_rate: initial_storage_rate, update_count: update_count, updated_by: facility_manager.identify)
