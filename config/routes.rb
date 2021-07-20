@@ -36,6 +36,7 @@ Rails.application.routes.draw do
   get 'apis/retrieve_facilities'
   get 'apis/retrieve_fridges'
   get 'apis/get_fridge' #get last rate for fridge
+  get 'apis/del_fridge'
 
 
   resources :administrators

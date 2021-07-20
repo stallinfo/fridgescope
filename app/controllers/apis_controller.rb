@@ -206,6 +206,22 @@ class ApisController < ApplicationController
         end
     end
 
+    def del_fridge
+        identify = params[:identify]
+        password = params[:password]
+        facility_manager = FacilityManager.find_by(identify: identify)
+        if facility_manager && facility_manager.authenticate(password)
+            fridge_id = params[:fridge_id].to_i
+            fridge = Fridge.find(fridge_id)
+            fridge.fridge_latest_states.delete_all
+            fridge.fridge_past_states.delete_all
+            fridge.delete
+            jsonMsg(200,"Deleted",[])
+        else
+            jsonMsg(500,"Rejected",[])
+        end
+    end
+
     private 
         def jsonMsg(errNum, errMessage, results)
             responseInfo = {status: errNum, developerMessage: errMessage}
