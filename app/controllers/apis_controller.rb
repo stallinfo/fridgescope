@@ -46,11 +46,24 @@ class ApisController < ApplicationController
         password = params[:password]
         latitude = params[:latitude].to_f
         longitude = params[:longitude].to_f
+        fridge_id = params[:fridge_id].to_i
         facility_manager = FacilityManager.find_by(identify: identify)
         if facility_manager.authenticate(password)
             facility = Facility.find(facility_manager.facility_id)
             initial_storage_rate = density_calculation(image)
-            Fridge.create(name: title, initial_picture_path: image, description: "", facility_id: facility.id, latitude: latitude, longitude: longitude, update_count: 0, initial_storage_rate: initial_storage_rate)
+            if fridge_id == -1 
+                Fridge.create(name: title, initial_picture_path: image, description: "", facility_id: facility.id, latitude: latitude, longitude: longitude, update_count: 0, initial_storage_rate: initial_storage_rate)
+            else
+                fridge = Fridge.find(fridge_id)
+                if fridge.fridge_last_states.count > 0
+                    fridge_last = fridge.fridge_last_states.first
+                    update_count = fridge_last.update_count + 1
+                    fridge_last.update_attributes(name: title, current_picture_path: image, current_storage_rate: initial_storage_rate, update_count: update_count, updated_by: facility_manager.identify)
+                else
+                    FridgeLatestState.create(name: title, current_picture_path: image, description: "", fridge_id: fridge_id, update_count: 0, created_by: facility_manager.identify, current_storage_rate: initial_storage_rate)
+                end
+                FridgePastState.create(name: title, current_picture_path: image, description: "", fridge_id: fridge_id, update_count: 0, created_by: facility_manager.identify, current_storage_rate: initial_storage_rate)
+            end
         end
         render json: {result: 0}
     end
@@ -120,7 +133,7 @@ class ApisController < ApplicationController
                     fridges[fridge_count]["lon"] = fridge.longitude
                     fridges[fridge_count]["date"] = fridge.updated_at
                     fridges[fridge_count]["rate"] = fridge.initial_storage_rate.to_i
-                    if fridge.initial_storage_rate != nil && fac["rate"] > fridge.initial_storage_rate.to_i
+                    if fac["rate"] > fridge.initial_storage_rate.to_i
                         fac["rate"] = fridge.initial_storage_rate.to_i
                     end
                     if fridge.initial_picture_path.attached?
