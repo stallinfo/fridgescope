@@ -133,13 +133,25 @@ class ApisController < ApplicationController
                     fridges[fridge_count]["lon"] = fridge.longitude
                     fridges[fridge_count]["date"] = fridge.updated_at
                     fridges[fridge_count]["rate"] = fridge.initial_storage_rate.to_i
-                    if fac["rate"] > fridge.initial_storage_rate.to_i
-                        fac["rate"] = fridge.initial_storage_rate.to_i
-                    end
-                    if fridge.initial_picture_path.attached?
-                        fridges[fridge_count]["image"] = rails_blob_path(fridge.initial_picture_path , only_path: true)
+                    if fridge.fridge_latest_states.count = 0
+                        if fac["rate"] > fridge.initial_storage_rate.to_i
+                            fac["rate"] = fridge.initial_storage_rate.to_i
+                        end
+                        if fridge.initial_picture_path.attached?
+                            fridges[fridge_count]["image"] = rails_blob_path(fridge.initial_picture_path , only_path: true)
+                        else
+                            fridges[fridge_count]["image"] = "Homer Simpson"
+                        end
                     else
-                        fridges[fridge_count]["image"] = "Homer Simpson"
+                        fridge_last = fridge.fridge_latest_states.first
+                        if fac["rate"] > fridge.current_storage_rate.to_i
+                            fac["rate"] = fridge.current_storage_rate.to_i
+                        end
+                        if fridge_last.current_picture_path.attached?
+                            fridges[fridge_count]["image"] = rails_blob_path(fridge_last.current_picture_path , only_path: true)
+                        else
+                            fridges[fridge_count]["image"] = "Homer Simpson"
+                        end
                     end
                     fridge_count += 1
                 end
