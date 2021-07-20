@@ -213,9 +213,9 @@ class ApisController < ApplicationController
         if facility_manager && facility_manager.authenticate(password)
             fridge_id = params[:fridge_id].to_i
             fridge = Fridge.find(fridge_id)
-            fridge.fridge_latest_states.delete_all
-            fridge.fridge_past_states.delete_all
-            fridge.delete
+            fridge.fridge_latest_states.destroy_all
+            fridge.fridge_past_states.destroy_all
+            fridge.destroy
             jsonMsg(200,"Deleted",[])
         else
             jsonMsg(500,"Rejected",[])
