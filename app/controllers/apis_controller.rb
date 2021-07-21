@@ -16,7 +16,7 @@ class ApisController < ApplicationController
             facility = Facility.find(facility_manager.facility_id)
 
             if facility != nil && facility.service_id == service.id && facility_manager.authenticate(password)
-                jsonMsg(200,"Authenticated",[service.name, service.description]) 
+                jsonMsg(200,"Authenticated",[service.name, service.description, facility.id, facility.name]) 
                 if facility_manager.email == nil || facility_manager.email == ""
                     facility_manager.update(email: email)
                 end
