@@ -17,12 +17,12 @@
 
             <div class="facilities-edit-inputContainer">
                 <%= form.label :latitude, class: "facilities-edit-inputName" %>
-                <%= form.text_field :latitude, class: 'form-control' %>
+                <%= form.text_field :latitude, class: 'form-control', id: 'latlongclicked' %>
             </div>
 
             <div class="facilities-edit-inputContainer">
                 <%= form.label :longitude, class: "facilities-edit-inputName" %>
-                <%= form.text_field :longitude, class: 'form-control' %>
+                <%= form.text_field :longitude, class: 'form-control', id: 'lonlongclicked' %>
             </div>
 
             <div class="facilities-edit-inputContainer">
@@ -79,6 +79,10 @@
     map = new google.maps.Map(document.getElementById("map"), {
       center: { lat: 34.96044797500092, lng: 138.4044472577484 },
       zoom: 15,
+    });
+    google.maps.event.addListener(map, 'click', function(event){
+      document.getElementById('latlongclicked').value = event.latLng.lat()
+      document.getElementById('lonlongclicked').value = event.latLng.lng()
     });
   }
 </script>

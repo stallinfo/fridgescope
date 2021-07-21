@@ -31,7 +31,7 @@
           <% end %>  
         </div>
         <div class="facilities-index-servicesFooter">
-          <%= link_to 'Add New Service', new_facility_path, class: "btn btn-primary" %>
+          <%= link_to 'Add New Facility', new_facility_path, class: "btn btn-primary" %>
           <%= will_paginate(@facilities, :param_name => 'facility_page', :params => {:tab => 0}, :renderer => WillPaginate::ActionView::Bootstrap4LinkRenderer) %>
         </div>
       </div>

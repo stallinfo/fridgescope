@@ -31,7 +31,6 @@ class FacilitiesController < ApplicationController
     @facility.created_by = current_service_manager.identify
     @facility.update_count = 0
     @facility.updated_by = current_service_manager.identify
-
     respond_to do |format|
       if @facility.save
         format.html { redirect_to facilities_path, notice: "Facility was successfully created." }
