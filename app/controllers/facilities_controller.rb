@@ -4,7 +4,8 @@ class FacilitiesController < ApplicationController
 
   # GET /facilities or /facilities.json
   def index
-    @facilities = Facility.paginate(:page => params[:facility_page], :per_page => 10)
+    #@facilities = Facility.paginate(:page => params[:facility_page], :per_page => 10)
+    @facilities = current_service_manager.service.facilities.paginate(:page => params[:facility_page], :per_page => 10)
   end
 
   # GET /facilities/1 or /facilities/1.json
