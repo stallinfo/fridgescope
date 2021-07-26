@@ -7,7 +7,7 @@ class FacilityManager < ApplicationRecord
   #validates :email, presence: false, length: { maximum: 80 },
   #  format: { with: VALID_EMAIL_REGEX },
   #  uniqueness: true
-  validates :email, presence: false, uniqueness: false
+  validates :email, presence: false
   validates :identify, presence: false, length: { maximum: 20 }
   validates :created_by, presence: false, length: { maximum: 20 }
   validates :updated_by, presence: false, length: { maximum: 20 }
