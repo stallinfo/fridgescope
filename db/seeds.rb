@@ -13,6 +13,10 @@ Administrator.create!(name:  "SBS Co Admin",
              identify: "sbscoadmin",
              password:              "bbbbbbbb",
              password_confirmation: "bbbbbbbb")
+Service.create!(name: "Shizuoka City", connection_phrase: "SZK01", description: "Shizuoka municipality area", update_count: 0, created_by: "sbsadmin", updated_by: "sbsadmin")
+ServiceManager.create!(service_id: 1, name: "Suruga Municipality", identify: "suruga", update_count: 0, created_by: "sbsadmin", updated_by: "sbsadmin")
+Facility.create!(service_id: 1, name: "Nishiwaki Gathering", latitude: 0.349665851153456e2, longitude: 0.13840189267876e3, created_by: "suruga", update_count: 0, updated_by: "suruga")
+FacilityManager.create!(facility_id: 1, identify: "suzuki", password: "suzuki", password_confirmation: "suzuki", name: "Suzuki Taro", email: "suzuki@taro.com", update_count: 0, created_by: "suruga", updated_by: "suruga")
 # Generate a bunch of additional users.
 #99.times do |n|
 #    name = Faker::Name.name

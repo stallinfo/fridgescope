@@ -22,4 +22,7 @@ If the test suite passes, you'll be ready to run the app in a local server:
 ```
 $ rails server
 ```
-For more information, please contact SBS Information System
+## Smartphone 
+For smartphone code, please find out in "smartphonecode" folder.
+
+For more information, please contact SBS Information System.
